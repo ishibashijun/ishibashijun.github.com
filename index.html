@@ -1,0 +1,309 @@
+---
+layout: page
+title: 
+tagline:
+---
+{% include JB/setup %}
+
+<canvas id="c"></canvas>
+
+<script>
+    var canvas, ctx,
+        width, height,
+        centerX, centerY,
+        offset,
+        mouse = {x: 0, y: 0},
+        num = Random(25, 40, false),
+        cubes = new Array(num),
+        balls = new Array(num),
+        fl = 250;
+        
+    var TWO_PI = Math.PI * 2.0;
+        
+    function onLoad() {
+        init();
+        
+        setInterval(render, 1000 / 30);
+    }
+    
+    function render() {
+        ctx.clearRect(0, 0, width, height);
+        
+        cubes.forEach(function(element, index, array) {
+           element.draw(balls[index]); 
+        });
+        
+        var distX = mouse.x - centerX,
+            distY = mouse.y - centerY,
+            ratio;
+        
+        cubes.forEach(function(element, index, array) {
+           if (element.width > 30) ratio = 0.3;
+           else if (element.width > 20) ratio = 0.09;
+           else ratio = 0.05;
+           
+           array[index].x = element.vx + distX * ratio;
+           array[index].y = element.vy + distY * ratio;
+        });
+    }
+    
+    function init() {
+        width = $(window).width();
+        height = $(window).height();
+        canvas = $("#c");
+        canvas.attr("width", width);
+        canvas.attr("height", height);
+        canvas.css({
+            position: "fixed",
+            top: "0px",
+            left: "0px",
+            zIndex: "1",
+            width: width + "px",
+            height: height + "px"
+        });
+        ctx = canvas.get(0).getContext("2d");
+        offset = canvas.offset();
+        centerX = width / 2;
+        centerY = height / 2;
+        
+        canvas.mousemove(function(e) {
+            mouse.x = e.pageX - offset.left;
+            mouse.y = e.pageY - offset.top;
+        });
+        
+        for (var i = 0; i < num; i++) {
+            cubes[i] = new Cube(Random(30, 80, true), Random(width), Random(height), RGBA(Hex2color(Random(16777215))));
+            balls[i] = new Array(8);
+        }
+        
+        cubes.forEach(function(element, index, array) {
+            balls[index][0] = element.ball( element.width,  element.width,  element.width, element.color);
+            balls[index][1] = element.ball( element.width,  element.width, -element.width, element.color);
+            balls[index][2] = element.ball(-element.width,  element.width, -element.width, element.color);
+            balls[index][3] = element.ball(-element.width,  element.width,  element.width, element.color);
+            balls[index][4] = element.ball( element.width, -element.width,  element.width, element.color);
+            balls[index][5] = element.ball( element.width, -element.width, -element.width, element.color);
+            balls[index][6] = element.ball(-element.width, -element.width, -element.width, element.color);
+            balls[index][7] = element.ball(-element.width, -element.width,  element.width, element.color);
+        })
+    }
+    
+    function Cube(width, x, y, color){
+        this.width = width / 2;
+        this.x = x;
+        this.y = y;
+        this.vx = x;
+        this.vy = y;
+        this.color = color;
+        this.num = 8;
+    }
+    
+    Cube.prototype.ball = function(posX, posY, posZ, color){
+        var self = {
+            x: 0,
+            y: 0,
+            r: 2,
+            color: color,
+            posX: posX,
+            posY: posY,
+            posZ: posZ,
+            scaleX: 1,
+            scaleY: 1,
+            rotation: 0
+        };
+        
+        return self;
+    };
+    
+    Cube.prototype.drawBall = function(b){
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(b.x, b.y);
+        ctx.rotate(b.rotation);
+        ctx.scale(b.scaleX, b.scaleY);
+        ctx.fillStyle = b.color;
+        ctx.arc(0, 0, b.r, 0, TWO_PI);
+        ctx.closePath();
+        ctx.fill();
+        ctx.globalAlpha = 0.5;
+        ctx.arc(0, 0, b.r * 2, 0, TWO_PI);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+    };
+    
+    Cube.prototype.rotateX = function(b, angle){
+        var cos = Math.cos(angle),
+            sin = Math.sin(angle),
+            y1 = b.posY * cos - b.posZ * sin,
+            z1 = b.posZ * cos + b.posY * sin;
+            
+        b.posY = y1;
+        b.posZ = z1;
+    };
+    
+    Cube.prototype.rotateY = function(b, angle){
+        var cos = Math.cos(angle),
+            sin = Math.sin(angle),
+            x1 = b.posX * cos - b.posZ * sin,
+            z1 = b.posZ * cos + b.posX * sin;
+            
+        b.posX = x1;
+        b.posZ = z1;
+    };
+    
+    Cube.prototype.setPerspective = function(b){
+        if(b.posZ > -fl){
+            var scale = fl / (fl + b.posZ);
+            
+            b.scaleX = b.scaleY = scale;
+            b.x = this.x + b.posX * scale;
+            b.y = this.y + b.posY * scale;
+        }
+    };
+    
+    Cube.prototype.move = function(b, ax, ay){
+        this.rotateX(b, ax);
+        this.rotateY(b, ay);
+        this.setPerspective(b);
+    };
+    
+    Cube.prototype.draw = function(b){
+        var	angleX = (mouse.y - this.y) * 0.0001,
+            angleY = (mouse.x - this.x) * 0.0001,
+			i, len = this.num;
+			
+		for (i = 0; i < len; i++) {
+			this.move(b[i], angleX, angleY);
+			this.drawBall(b[i]);
+		}
+        
+        ctx.save();
+        ctx.beginPath();
+        ctx.strokeStyle = this.color;
+        ctx.moveTo(b[0].x, b[0].y);
+        ctx.lineTo(b[1].x, b[1].y);
+        ctx.lineTo(b[2].x, b[2].y);
+        ctx.lineTo(b[3].x, b[3].y);
+        ctx.lineTo(b[0].x, b[0].y);
+        ctx.lineTo(b[4].x, b[4].y);
+        ctx.lineTo(b[5].x, b[5].y);
+        ctx.lineTo(b[6].x, b[6].y);
+        ctx.lineTo(b[7].x, b[7].y);
+        ctx.lineTo(b[4].x, b[4].y);
+        ctx.moveTo(b[1].x, b[1].y);
+        ctx.lineTo(b[5].x, b[5].y);
+        ctx.moveTo(b[2].x, b[2].y);
+        ctx.lineTo(b[6].x, b[6].y);
+        ctx.moveTo(b[3].x, b[3].y);
+        ctx.lineTo(b[7].x, b[7].y);
+        ctx.closePath();
+        ctx.stroke();
+        ctx.globalAlpha = 0.1;
+        ctx.lineWidth = 1;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.moveTo(b[0].x, b[0].y);
+        ctx.lineTo(b[1].x, b[1].y);
+        ctx.lineTo(b[2].x, b[2].y);
+        ctx.lineTo(b[3].x, b[3].y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(b[4].x, b[4].y);
+        ctx.lineTo(b[5].x, b[5].y);
+        ctx.lineTo(b[6].x, b[6].y);
+        ctx.lineTo(b[7].x, b[7].y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(b[0].x, b[0].y);
+        ctx.lineTo(b[1].x, b[1].y);
+        ctx.lineTo(b[5].x, b[5].y);
+        ctx.lineTo(b[4].x, b[4].y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(b[1].x, b[1].y);
+        ctx.lineTo(b[2].x, b[2].y);
+        ctx.lineTo(b[6].x, b[6].y);
+        ctx.lineTo(b[5].x, b[5].y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(b[2].x, b[2].y);
+        ctx.lineTo(b[3].x, b[3].y);
+        ctx.lineTo(b[7].x, b[7].y);
+        ctx.lineTo(b[6].x, b[6].y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(b[3].x, b[3].y);
+        ctx.lineTo(b[0].x, b[0].y);
+        ctx.lineTo(b[4].x, b[4].y);
+        ctx.lineTo(b[7].x, b[7].y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+    };
+    
+    function Random(min, max, isFloat) {
+		if (!min) {
+			return Math.random();
+		} else if (!max) {
+			return Math.round(Math.random() * min);
+		} else {
+			if (!isFloat) {
+				return Math.round((Math.random() * (max - min)) + min);
+			} else {
+				return Math.random() * (max - min) + min;
+			}
+		}
+	}
+    
+    function Hex2color(hex){
+        var r = hex >> 16 & 0xff,
+            g = hex >>  8 & 0xff,
+            b = hex       & 0xff;
+            
+        r = (r.toString(16).length === 2) ? r.toString(16) : "0" + r.toString(16);
+        g = (g.toString(16).length === 2) ? g.toString(16) : "0" + g.toString(16);
+        b = (b.toString(16).length === 2) ? b.toString(16) : "0" + b.toString(16);
+        
+        return "#" + r + g + b;
+    }
+    
+    function RGBA(color, alpha){
+        var c, a;
+        
+        if (color.length == 4) {
+            color = color.slice(1);
+            color = color[0] + color[0] + color[1] + color[1] + color[2] + color[2];
+            c = parseInt(color, 16);
+        } else {
+            c = parseInt(color.slice(1), 16);
+        }
+        
+        if(typeof(alpha) === "undefined"){
+            a = 1;
+        } else if(alpha < 0){
+            a = 0;
+        } else if(alpha > 1){
+            a = 1;
+        } else {
+            a = alpha.toFixed(2);
+        }
+        
+        var r = c >> 16 & 0xff,
+            g = c >>  8 & 0xff,
+            b = c       & 0xff;
+            
+        if(a === 1){
+            return "rgb(" + r + ", " + g + ", " + b + ")";
+        } else {
+            return "rgba(" + r + ", " + g + ", " + b + ", " + a + ")";
+        }
+    }
+    
+    $(document).ready(onLoad);
+</script>
