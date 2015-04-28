@@ -292,9 +292,10 @@ tagline:
         }
         
         function onTouchStart(e) {
+            e.preventDefault();
             isMouseDown = true;
-            mouse.x = (e.touches[0].clientX - offset.left) * SCALE;
-            mouse.y = (e.touches[0].clientY - offset.top) * SCALE;
+            mouse.x = (e.touches[0].x - offset.left) * SCALE;
+            mouse.y = (e.touches[0].y - offset.top) * SCALE;
             
             canvas.on("touchmove", onTouchMove);
         }
@@ -306,8 +307,9 @@ tagline:
         }
         
         function onTouchMove(e) {
-            mouse.x = (e.touches[0].clientX - offset.left) * SCALE;
-            mouse.y = (e.touches[0].clientY - offset.top) * SCALE;
+            e.preventDefault();
+            mouse.x = (e.touches[0].x - offset.left) * SCALE;
+            mouse.y = (e.touches[0].y - offset.top) * SCALE;
         }
             
         main();
