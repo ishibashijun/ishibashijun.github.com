@@ -293,8 +293,8 @@ tagline:
         
         function onTouchStart(e) {
             isMouseDown = true;
-            mouse.x = (e.clientX - offset.left) * SCALE;
-            mouse.y = (e.clientY - offset.top) * SCALE;
+            mouse.x = (e.touches[0].clientX - offset.left) * SCALE;
+            mouse.y = (e.touches[0].clientY - offset.top) * SCALE;
             
             canvas.on("touchmove", onTouchMove);
         }
@@ -306,8 +306,8 @@ tagline:
         }
         
         function onTouchMove(e) {
-            mouse.x = (e.clientX - offset.left) * SCALE;
-            mouse.y = (e.clientY - offset.top) * SCALE;
+            mouse.x = (e.touches[0].clientX - offset.left) * SCALE;
+            mouse.y = (e.touches[0].clientY - offset.top) * SCALE;
         }
             
         main();
