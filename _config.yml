@@ -69,6 +69,7 @@ JB :
   # Some JB helpers refer to these paths; change them here if needed.
   #
   about_path: /about.html
+  page_path: /pages.html
   blog_path: /blog.html
   archive_path: /archive.html
   categories_path : /categories.html
@@ -101,7 +102,7 @@ JB :
   analytics :
     provider : google 
     google : 
-        tracking_id : 'UA-123-12'
+        tracking_id : 'UA-34391170-1'
     getclicky :
       site_id : 
     mixpanel :
