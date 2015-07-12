@@ -99,8 +99,6 @@ tagline:
             
             $(window).on("mousedown", onMouseDown);
             $(window).on("mouseup", onMouseUp);
-            $(window).on("touchstart", onTouchStart);
-            $(window).on("touchend", onTouchEnd);
         
             setInterval(render, 1000 / 30);
         }
@@ -289,28 +287,7 @@ tagline:
             mouse.x = (e.clientX - offset.left) * SCALE;
             mouse.y = (e.clientY - offset.top) * SCALE;
         }
-        
-        function onTouchStart(e) {
-            e.preventDefault();
-            isMouseDown = true;
-            mouse.x = (e.touches[0].x - offset.left) * SCALE;
-            mouse.y = (e.touches[0].y - offset.top) * SCALE;
-            
-            canvas.on("touchmove", onTouchMove);
-        }
-        
-        function onTouchEnd(e) {
-            isMouseDown = false;
-            
-            canvas.off("touchmove");
-        }
-        
-        function onTouchMove(e) {
-            e.preventDefault();
-            mouse.x = (e.touches[0].x - offset.left) * SCALE;
-            mouse.y = (e.touches[0].y - offset.top) * SCALE;
-        }
-            
+
         main();
     })(window);
 </script>
