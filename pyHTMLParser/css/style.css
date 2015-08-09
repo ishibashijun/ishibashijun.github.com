@@ -1,0 +1,172 @@
+@charset "UTF-8";
+@import "./font-face.css";
+@import "./typography.css";
+
+body {
+    font-family: "Droid Serif", Georgia, serif;
+    line-height: 1.12em;
+    background: white;
+    letter-spacing: 2px;
+}
+
+ul {
+    margin: 5px 0 0 25px;
+	padding: 0 0 5px 0;
+}
+
+a {
+    color: #10427f;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #92bdf2;
+}
+
+hr {
+    border: dashed 0 #dcdcdc;
+    border-width: 1px 0 0;
+    margin: 20px 0;
+}
+
+pre {
+	display: block;
+	padding: 0 30px 0;
+	margin: 0 0 10px;
+	line-height: 20px;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	background-color: #f5f5f5;
+	border: 1px solid #ff7a5a;
+	border: 1px solid rgba(0, 0, 0, 0.15);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+pre code {
+	white-space: pre;
+	white-space: pre-wrap;
+	background-color: transparent;
+	border: 0;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+	left: 0;
+	bottom: 0;
+    width: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 15px 0 30px 0;
+    border-right: 1px solid #ccc;
+    font-size: 14px;
+	background-color:#fcf4d9;
+}
+
+#sidebar h1 {
+    font-size: 1.75em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 1px #ccc;
+}
+
+#sidebar h1 a {
+	color: #00aaa0;
+}
+
+#sidebar h1 a:hover {
+	color: #00aaa0;
+}
+
+#sidebar h1 span {
+	padding-left: 25px;
+}
+
+#sidebar h2 {
+	margin-left: 25px;
+	margin-bottom: 5px;
+}
+
+#sidebar h4 span {
+	padding-left: 25px;
+	font-style: italic;
+}
+
+#sidebar ul {
+	list-style-type: circle;
+	margin-bottom: 15px;
+}
+
+#sidebar li {
+	line-height: 20px;
+	margin-left: 25px;
+}
+
+#main {
+    width: 700px;
+    margin: 40px 0 50px 350px;
+    font-size: 0.875em;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+
+#main h1 {
+    color: #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 0;
+    font-size: 2em;
+    text-shadow: 0 0 1px #ccc;
+    border: solid 0 #e1e1e8;
+    border-width: 0 0 1px 0;
+}
+
+#description {
+    line-height: 20px;
+    font-size: 0.75em;
+    font-weight: normal;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+#main h2 {
+    font-size: 16px;
+    font-weight: normal;
+    margin: 40px 0 15px;
+    letter-spacing: 0.5em;
+}
+
+#main h3 {
+    margin: 10px 0 0px;
+    font-size: 14px;
+}
+
+#main h4 {
+    font-size: 12px;
+}
+
+#main h5 {
+    
+}
+#main ul {
+    margin: 0;
+    list-style-type: decimal;
+    line-height: 20px;
+}
+
+#main ul li {
+	margin-left: 25px;
+}
+
+#main ul li ul {
+    margin: 0 0 10px 15px;
+    list-style-type: none;
+}
+
+#main ul li ul li {
+	margin: 0;
+	list-style-type: none;
+	color: #10427f;
+}

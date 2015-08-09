@@ -1,0 +1,21 @@
+@font-face{
+	font-family: "Bitstream Vera Sans Mono";
+	src: url(../fonts/VeraMono.eot?) format("ltIE9"),
+		 url(../fonts/VeraMono.eot) format("embedded-opentype"),
+		 url(../fonts/VeraMono.woff) format("woff"),
+		 url(../fonts/VeraMono.ttf) format("truetype"),
+		 url(../fonts/VeraMono.svg#Bitstream Vera Sans Mono) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face{
+	font-family: "Droid Serif";
+	src: url(../fonts/DroidSerif-Regular.eot?) format("ltIE9"),
+		 url(../fonts/DroidSerif-Regular.eot) format("embedded-opentype"),
+		 url(../fonts/DroidSerif-Regular.woff) format("woff"),
+		 url(../fonts/DroidSerif-Regular.ttf) format("truetype"),
+		 url(../fonts/DroidSerif-Regular.svg#Droid Serif) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}

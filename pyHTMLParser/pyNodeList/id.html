@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>pyHTMLParser Docs</title>
+<link rel="stylesheet" href="../css/reset-light.css" type="text/css">
+<link rel="stylesheet" href="../css/style.css" type="text/css">
+
+</head>
+<body>
+
+<div id="sidebar">
+	<h1><a href="../index.html"><span>pyHTMLParser</span></a></h1><hr>
+	<div id="list">
+		<h2><span>Download</span></h2>
+		<ul>
+			<li>
+				<a href="https://github.com/ishibashijun/pyHTMLParser">Github</a>
+			</li>
+			<li>
+				<a href="https://pypi.python.org/pypi/pyHTMLParser/">Pypi</a>
+			</li>
+		</ul>
+		<h2>Parser</h2>
+		<h4><span>extends HTMLParser</span></h4>
+		<ul>
+			<li><a href="../parser/set_decoding.html">set_decoding</a></li>
+			<li><a href="../parser/open.html">open</a></li>
+			<li><a href="../parser/close.html">close</a></li>
+			<li><a href="../parser/raw_html.html">raw_html</a></li>
+			<li><a href="../parser/tag.html">tag</a></li>
+			<li><a href="../parser/body.html">body</a></li>
+			<li><a href="../parser/id.html">id</a></li>
+			<li><a href="../parser/cls.html">cls</a></li>
+			<li><a href="../parser/handle_starttag.html">handle_starttag</a></li>
+			<li><a href="../parser/handle_endtag.html">handle_endtag</a></li>
+			<li><a href="../parser/handle_startendtag.html">handle_startendtag</a></li>
+			<li><a href="../parser/handle_data.html">handle_data</a></li>
+		</ul>
+		<h2>pyNodeList</h2>
+		<h4><span>extends list</span></li>
+		<ul>
+			<li><a href="./first.html">first</a></li>
+			<li><a href="./last.html">last</a></li>
+			<li><a href="./eq.html">eq</a></li>
+			<li><a href="./even.html">even</a></li>
+			<li><a href="./odd.html">odd</a></li>
+			<li><a href="./gt.html">gt</a></li>
+			<li><a href="./lt.html">lt</a></li>
+			<li><a href="./id.html">id</a></li>
+			<li><a href="./cls.html">cls</a></li>
+			<li><a href="./contains.html">contains</a></li>
+		</ul>
+		<h2>pyNode</h2>
+		<ul>
+			<li><a href="../pyNode/str.html">__str__</a></li>
+			<li><a href="../pyNode/name.html">name</a></li>
+			<li><a href="../pyNode/set_name.html">set_name</a></li>
+			<li><a href="../pyNode/is_null.html">is_null</a></li>
+			<li><a href="../pyNode/set_attr.html">set_attr</a></li>
+			<li><a href="../pyNode/attr.html">attr</a></li>
+			<li><a href="../pyNode/id.html">id</a></li>
+			<li><a href="../pyNode/cls.html">cls</a></li>
+			<li><a href="../pyNode/has_class.html">has_class</a></li>
+			<li><a href="../pyNode/html.html">html</a></li>
+			<li><a href="../pyNode/set_html.html">set_html</a></li>
+			<li><a href="../pyNode/text.html">text</a></li>
+			<li><a href="../pyNode/set_text.html">set_text</a></li>
+			<li><a href="../pyNode/has_parent.html">has_parent</a></li>
+			<li><a href="../pyNode/set_parent.html">set_parent</a></li>
+			<li><a href="../pyNode/parent.html">parent</a></li>
+			<li><a href="../pyNode/parents.html">parents</a></li>
+			<li><a href="../pyNode/has_child.html">has_child</a></li>
+			<li><a href="../pyNode/add_child.html">add_child</a></li>
+			<li><a href="../pyNode/children.html">children</a></li>
+			<li><a href="../pyNode/child.html">child</a></li>
+			<li><a href="../pyNode/next_all.html">next_all</a></li>
+			<li><a href="../pyNode/prev_all.html">prev_all</a></li>
+		</ul>
+	</div>
+</div>
+<div id="main">
+	<h1>id</h1>
+	<p id="description">returns a element matching a id name</p>
+	<h2>Example</h2>
+	<pre><code>
+parser = Parser()
+parser.open("http://example.com")
+divs = parser.tag('div')
+nav = divs.id('nav')
+parser.close()
+	</code></pre>
+	<h2 id="arguments">Arguments</h2>
+	<ul>
+		<li>Name: i,&nbsp;<em>Type: str</em>
+			<ul>
+				<li>id name</li>
+			</ul>
+		</li>
+	</ul>
+	<h2 id="source">Source</h2>
+	<pre><code>
+def id(self, i):
+	for node in self:
+		if node.get_attr('id') == i:
+			return node
+	return None
+	</code></pre>
+</div>
