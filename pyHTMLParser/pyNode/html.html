@@ -98,15 +98,15 @@ parser.close()
         <pre><code>
 def html(self):
     if self._html != '': return self._html
-    self._html += '<'+self.name()
+    self._html += '&lt;'+self.name()
     for attr in self._attr:
         self._html += ' '+attr+'="'+self._attr[attr]+'"'
-    self._html += '>'+self._text
+    self._html += '&gt;'+self._text
     if not is_self_closing(self.name()):
         if self.has_child:
             for ch in self.children():
                 self._html += ch.html()
-        self._html += '</'+self.name()+'>'
+        self._html += '&lt;/'+self.name()+'&gt;'
     return self._html
         </code></pre>
     </article>
