@@ -1,41 +1,40 @@
 @charset "UTF-8";
 
-/*** Typography ***/
 span.amp {
-	font-family: serif;
-	font-style: italic;
+    font-family: serif;
+    font-style: italic;
 }
 
 blockquote {
-	font-family: Georgia;
-	font-style: italic;
-	color: #91b8c0;
+    font-family: Georgia;
+    font-style: italic;
+    color: #91b8c0;
 }
 
 pre, code, samp {
-	font-family: "Bitstream Vera Sans Mono", monospace, serif;
-	font-size: 1em;
-	color: #444;
+    font-family: "Bitstream Vera Sans Mono", monospace, serif;
+    font-size: 1em;
+    color: #444;
 }
 
 pre {
-	white-space: pre;
-	word-wrap: break-word;
+    white-space: pre;
+    word-wrap: break-word;
 }
 
 body {
-	color: #8ed2c9;
+    color: #8ed2c9;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: #00aaa0;
-	font-weight: normal;
+    color: #00aaa0;
+    font-weight: normal;
 }
 
 .fontDroid {
-	font-family: "Droid Serif", Georgia, serif;
+    font-family: "Droid Serif", Georgia, serif;
 }
 
 .small {
-	font-size: 0.9em;
+    font-size: 0.9em;
 }
