@@ -57,14 +57,17 @@ pre code {
     position: fixed;
     top: 0;
 	left: 0;
-	bottom: 0;
     width: 300px;
-    overflow-y: auto;
+	height: 100%;
     overflow-x: hidden;
     padding: 15px 0 30px 0;
     border-right: 1px solid #ccc;
     font-size: 14px;
 	background-color:#fcf4d9;
+}
+
+#sidebar #list {
+	margin-bottom: 60px;
 }
 
 #sidebar h1 {
