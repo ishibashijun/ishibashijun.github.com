@@ -3,98 +3,108 @@
 <head>
 
 <meta charset="utf-8">
-<title>pyHTMLParser Docs</title>
+<meta name="viewport" content="width=device-width">
+<title>pyHTMLParser Docs | pyNode.parent</title>
 <link rel="stylesheet" href="../css/reset-light.css" type="text/css">
 <link rel="stylesheet" href="../css/style.css" type="text/css">
 
 </head>
 <body>
 
-<div id="sidebar">
-	<h1><a href="../index.html"><span>pyHTMLParser</span></a></h1><hr>
-	<div id="list">
-		<h2><span>Download</span></h2>
-		<ul>
-			<li>
-				<a href="https://github.com/ishibashijun/pyHTMLParser">Github</a>
-			</li>
-			<li>
-				<a href="https://pypi.python.org/pypi/pyHTMLParser/">Pypi</a>
-			</li>
-		</ul>
-		<h2>Parser</h2>
-		<h4><span>extends HTMLParser</span></h4>
-		<ul>
-			<li><a href="../parser/set_decoding.html">set_decoding</a></li>
-			<li><a href="../parser/open.html">open</a></li>
-			<li><a href="../parser/close.html">close</a></li>
-			<li><a href="../parser/raw_html.html">raw_html</a></li>
-			<li><a href="../parser/tag.html">tag</a></li>
-			<li><a href="../parser/body.html">body</a></li>
-			<li><a href="../parser/id.html">id</a></li>
-			<li><a href="../parser/cls.html">cls</a></li>
-			<li><a href="../parser/handle_starttag.html">handle_starttag</a></li>
-			<li><a href="../parser/handle_endtag.html">handle_endtag</a></li>
-			<li><a href="../parser/handle_startendtag.html">handle_startendtag</a></li>
-			<li><a href="../parser/handle_data.html">handle_data</a></li>
-		</ul>
-		<h2>pyNodeList</h2>
-		<h4><span>extends list</span></li>
-		<ul>
-			<li><a href="../pyNodeList/first.html">first</a></li>
-			<li><a href="../pyNodeList/last.html">last</a></li>
-			<li><a href="../pyNodeList/eq.html">eq</a></li>
-			<li><a href="../pyNodeList/even.html">even</a></li>
-			<li><a href="../pyNodeList/odd.html">odd</a></li>
-			<li><a href="../pyNodeList/gt.html">gt</a></li>
-			<li><a href="../pyNodeList/lt.html">lt</a></li>
-			<li><a href="../pyNodeList/id.html">id</a></li>
-			<li><a href="../pyNodeList/cls.html">cls</a></li>
-			<li><a href="../pyNodeList/contains.html">contains</a></li>
-		</ul>
-		<h2>pyNode</h2>
-		<ul>
-			<li><a href="./str.html">__str__</a></li>
-			<li><a href="./name.html">name</a></li>
-			<li><a href="./set_name.html">set_name</a></li>
-			<li><a href="./is_null.html">is_null</a></li>
-			<li><a href="./set_attr.html">set_attr</a></li>
-			<li><a href="./attr.html">attr</a></li>
-			<li><a href="./id.html">id</a></li>
-			<li><a href="./cls.html">cls</a></li>
-			<li><a href="./has_class.html">has_class</a></li>
-			<li><a href="./html.html">html</a></li>
-			<li><a href="./set_html.html">set_html</a></li>
-			<li><a href="./text.html">text</a></li>
-			<li><a href="./set_text.html">set_text</a></li>
-			<li><a href="./has_parent.html">has_parent</a></li>
-			<li><a href="./set_parent.html">set_parent</a></li>
-			<li><a href="./parent.html">parent</a></li>
-			<li><a href="./parents.html">parents</a></li>
-			<li><a href="./has_child.html">has_child</a></li>
-			<li><a href="./add_child.html">add_child</a></li>
-			<li><a href="./children.html">children</a></li>
-			<li><a href="./child.html">child</a></li>
-			<li><a href="./next_all.html">next_all</a></li>
-			<li><a href="./prev_all.html">prev_all</a></li>
-		</ul>
-	</div>
-</div>
+<aside id="sidebar">
+    <h1><a href="../index.html"><span>pyHTMLParser</span></a></h1><hr>
+    <div id="list">
+        <h2><span>Download</span></h2>
+        <ul>
+            <li>
+                <a href="https://github.com/ishibashijun/pyHTMLParser">Github</a>
+            </li>
+            <li>
+                <a href="https://pypi.python.org/pypi/pyHTMLParser/">Pypi</a>
+            </li>
+        </ul>
+        <h2>Parser</h2>
+        <h4><span>extends HTMLParser</span></h4>
+        <ul>
+            <li><a href="../parser/set_decoding.html">set_decoding</a></li>
+            <li><a href="../parser/open.html">open</a></li>
+            <li><a href="../parser/close.html">close</a></li>
+            <li><a href="../parser/raw_html.html">raw_html</a></li>
+            <li><a href="../parser/tag.html">tag</a></li>
+            <li><a href="../parser/body.html">body</a></li>
+            <li><a href="../parser/id.html">id</a></li>
+            <li><a href="../parser/cls.html">cls</a></li>
+            <li><a href="../parser/handle_starttag.html">handle_starttag</a></li>
+            <li><a href="../parser/handle_endtag.html">handle_endtag</a></li>
+            <li><a href="../parser/handle_startendtag.html">handle_startendtag</a></li>
+            <li><a href="../parser/handle_data.html">handle_data</a></li>
+        </ul>
+        <h2>pyNodeList</h2>
+        <h4><span>extends list</span></li>
+        <ul>
+            <li><a href="../pyNodeList/first.html">first</a></li>
+            <li><a href="../pyNodeList/last.html">last</a></li>
+            <li><a href="../pyNodeList/eq.html">eq</a></li>
+            <li><a href="../pyNodeList/even.html">even</a></li>
+            <li><a href="../pyNodeList/odd.html">odd</a></li>
+            <li><a href="../pyNodeList/gt.html">gt</a></li>
+            <li><a href="../pyNodeList/lt.html">lt</a></li>
+            <li><a href="../pyNodeList/id.html">id</a></li>
+            <li><a href="../pyNodeList/cls.html">cls</a></li>
+            <li><a href="../pyNodeList/contains.html">contains</a></li>
+        </ul>
+        <h2>pyNode</h2>
+        <ul>
+            <li><a href="./str.html">__str__</a></li>
+            <li><a href="./name.html">name</a></li>
+            <li><a href="./set_name.html">set_name</a></li>
+            <li><a href="./is_null.html">is_null</a></li>
+            <li><a href="./set_attr.html">set_attr</a></li>
+            <li><a href="./attr.html">attr</a></li>
+            <li><a href="./id.html">id</a></li>
+            <li><a href="./cls.html">cls</a></li>
+            <li><a href="./has_class.html">has_class</a></li>
+            <li><a href="./html.html">html</a></li>
+            <li><a href="./set_html.html">set_html</a></li>
+            <li><a href="./text.html">text</a></li>
+            <li><a href="./set_text.html">set_text</a></li>
+            <li><a href="./has_parent.html">has_parent</a></li>
+            <li><a href="./set_parent.html">set_parent</a></li>
+            <li><a href="./parent.html">parent</a></li>
+            <li><a href="./parents.html">parents</a></li>
+            <li><a href="./has_child.html">has_child</a></li>
+            <li><a href="./add_child.html">add_child</a></li>
+            <li><a href="./children.html">children</a></li>
+            <li><a href="./child.html">child</a></li>
+            <li><a href="./next_all.html">next_all</a></li>
+            <li><a href="./prev_all.html">prev_all</a></li>
+        </ul>
+    </div>
+</aside>
 <div id="main">
-	<h1>parent</h1>
-	<p id="description">returns parent tag</p>
-	<h2>Example</h2>
-	<pre><code>
+    <header>
+        <h1>parent</h1>
+        <p id="description">returns parent tag</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
 parser = Parser()
 parser.open("http://example.com")
 a_parent = Parser.tag('a').first().parent()
 parser.close()
-	</code></pre>
-	<h2 id="source">Source</h2>
-	<pre><code>
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
 def parent(self):
-	return self._parent
-	</code></pre>
+    return self._parent
+        </code></pre>
+    </article>
+    <footer>
+        <p>
+            <small>&copy; 2015 Jun Ishibashi</small>
+        </p>
+    </footer>
 </div>
 <script src="../js/script.js"></script>
 <script>
