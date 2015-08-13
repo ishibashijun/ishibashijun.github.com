@@ -3,6 +3,8 @@
 @import "./typography.css";
 
 body {
+	height: 100%;
+	min-height: 100%;
     font-family: "Droid Serif", Georgia, serif;
     line-height: 1.12em;
     background: white;
