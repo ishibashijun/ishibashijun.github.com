@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+{% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+<meta name="author" content="{{ site.author.name }}">
+<title>{{ page.title }}</title>
+<link rel="stylesheet" href="{{ BASE_PATH }}/pyHTMLParser/css/reset-light.css" type="text/css">
+<link rel="stylesheet" href="{{ BASE_PATH }}/pyHTMLParser/css/style.css" type="text/css">
+
+</head>
+<body>
+
+
+<aside id="sidebar">
+    <h1><a href="{{ BASE_PATH }}/pyHTMLParser/index.html"><span>pyHTMLParser</span></a></h1><hr>
+    <div id="list">
+        <h2><span>Download</span></h2>
+        <ul>
+            <li>
+                <a href="https://github.com/ishibashijun/pyHTMLParser">Github</a>
+            </li>
+            <li>
+                <a href="https://pypi.python.org/pypi/pyHTMLParser/">Pypi</a>
+            </li>
+        </ul>
+        <h2>Parser</h2>
+        <h4><span>extends HTMLParser</span></h4>
+        <ul>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/set_decoding.html">set_decoding</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/open.html">open</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/close.html">close</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/raw_html.html">raw_html</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/tag.html">tag</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/body.html">body</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/id.html">id</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/cls.html">cls</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/handle_starttag.html">handle_starttag</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/handle_endtag.html">handle_endtag</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/handle_startendtag.html">handle_startendtag</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/handle_data.html">handle_data</a></li>
+        </ul>
+        <h2>pyNodeList</h2>
+        <h4><span>extends list</span></h4>
+        <ul>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/first.html">first</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/last.html">last</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/eq.html">eq</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/even.html">even</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/odd.html">odd</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/gt.html">gt</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/lt.html">lt</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/id.html">id</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/cls.html">cls</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/contains.html">contains</a></li>
+        </ul>
+        <h2>pyNode</h2>
+        <ul>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/str.html">__str__</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/name.html">name</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/set_name.html">set_name</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/is_null.html">is_null</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/set_attr.html">set_attr</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/attr.html">attr</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/id.html">id</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/cls.html">cls</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/has_class.html">has_class</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/html.html">html</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/set_html.html">set_html</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/text.html">text</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/set_text.html">set_text</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/has_parent.html">has_parent</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/set_parent.html">set_parent</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/parent.html">parent</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/parents.html">parents</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/has_child.html">has_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/add_child.html">add_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/children.html">children</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/child.html">child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/next_all.html">next_all</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/prev_all.html">prev_all</a></li>
+        </ul>
+        <h2>Links</h2>
+        <ul>
+            <li><a href="{{ BASE_PATH }}/index.html">Top</a></li>
+            <li><a href="{{ BASE_PATH }}/docs.html">Docs</a></li>
+        </ul>
+    </div>
+</aside>
+<div id="main">
+
+{{ content }}
+
+    <footer>
+        <p>
+            <small>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</small>
+        </p>
+    </footer>
+</div>
+<script src="js/script.js"></script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-34391170-1', 'auto');
+ga('send', 'pageview');
+</script>
+</body>
+</html>

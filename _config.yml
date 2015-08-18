@@ -69,7 +69,7 @@ JB :
   # Some JB helpers refer to these paths; change them here if needed.
   #
   about_path: /about.html
-  page_path: /pages.html
+  docs_path: /docs.html
   blog_path: /blog.html
   archive_path: /archive.html
   categories_path : /categories.html
