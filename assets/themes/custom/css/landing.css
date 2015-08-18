@@ -1,0 +1,191 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,
+strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,
+figure,figcation,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+    margin:0;
+    padding:0;
+}
+img {
+    border: none;
+}
+
+@font-face{
+    font-family: "Bitstream Vera Sans Mono";
+    src: url(../fonts/VeraMono.eot?) format("ltIE9"),
+         url(../fonts/VeraMono.eot) format("embedded-opentype"),
+         url(../fonts/VeraMono.woff) format("woff"),
+         url(../fonts/VeraMono.ttf) format("truetype"),
+         url(../fonts/VeraMono.svg#Bitstream Vera Sans Mono) format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "Droid Serif";
+    src: url(../fonts/DroidSerif-Regular.eot?) format("ltIE9"),
+         url(../fonts/DroidSerif-Regular.eot) format("embedded-opentype"),
+         url(../fonts/DroidSerif-Regular.woff) format("woff"),
+         url(../fonts/DroidSerif-Regular.ttf) format("truetype"),
+         url(../fonts/DroidSerif-Regular.svg#Droid Serif) format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "sprout";
+    src: url(../fonts/sprout.eot?) format("ltIE9"),
+         url(../fonts/sprout.eot) format("embedded-opentype"),
+         url(../fonts/sprout.woff) format("woff"),
+         url(../fonts/sprout.ttf) format("truetype"),
+         url(../fonts/sprout.svg#sprout) format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "Droid Serif";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #0B2E59;
+}
+h1 {
+    font-size: 2.15em;
+}
+h2 {
+    font-size: 1.85em;
+}
+h3 {
+    font-size: 1.6em;
+}
+h4 {
+    font-size: 1.4em;
+}
+h5 {
+    font-size: 1.2em;
+}
+h6 {
+    font-size: 1em;
+}
+
+code,
+pre code {
+    font-family: "Bitstream Vera Sans Mono";
+}
+
+.navbar {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.navbar-inner {
+    height: 100%;
+    max-height: 60px;
+    border-radius: 0;
+    border: none;
+    background-image: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0px 2px 0 rgba(0, 0, 0, 0.14);
+    -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0px 2px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0px 2px 0 rgba(0, 0, 0, 0.14);
+}
+
+.navbar-inner > .container-narrow {
+    width: 100%;
+    max-width: 700px;
+    height: 100%;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+
+.navbar .brand {
+    font-family: "sprout";
+    font-weight: bold;
+    font-size: 40px;
+    color: #ffffff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.navbar .nav {
+    height: 100%;
+    float: right;
+}
+
+.navbar .nav li {
+    height: 100%;
+}
+
+.navbar .nav li a {
+    height: 41px;
+    padding: 16px 15px 0;
+    line-height: 15px;
+    font-family: "sprout";
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+    border: 0 solid rgba(0, 0, 0, 0);
+    border-width: 0 0 3px 0;
+}
+
+.navbar .nav li a:hover {
+    color: #cccccc;
+    border: 0 solid rgba(0, 0, 0, 1);
+    border-width: 0 0 3px 0;
+}
+
+#main {
+    width: 100%;
+    max-width: 100%;
+}
+
+.box {
+    width: 100%;
+}
+
+.links {
+    margin: 0 auto;
+}
+
+.links > h1 {
+    width: 100%;
+    color: #ccc;
+    font-family: "sprout";
+    text-align: center;
+}
+
+.links li {
+    list-style-type: none;
+}
+
+.links li a {
+    color: #fff;
+    font-family: "sprout";
+    text-decoration: none;
+}
+
+.links li a:hover {
+    color: rgb(150, 79, 76);
+}
+/*6653*/
+#c {
+    width: 100%;
+}
+
+#code {
+    background-color: #6ccecb;
+}
+
+#sns {
+    background-color: #218c8d;
+}
+
+#footer {
+    background-color: #8edc9d;
+}
