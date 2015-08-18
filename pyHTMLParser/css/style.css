@@ -64,6 +64,7 @@ pre code {
     position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
     width: 299px;
     height: 100%;
     min-height: 100%;
