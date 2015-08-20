@@ -1,0 +1,26 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.comment
+---
+    <header>
+        <h1>comment</h1>
+        <p id="description">returns element's comment</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+parser = Parser()
+parser.open("http://example.com")
+div_text = Parser.tag('div').first().comment()
+parser.close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def comment(self):
+    ret = []
+    for comment in self._comment:
+        com = '<!--' + comment + '-->'
+        ret.append(com)
+    return ' '.join(ret)
+        </code></pre>
+    </article>

@@ -4,7 +4,7 @@ title: pyHTMLParser Docs | pyNode.text
 ---
     <header>
         <h1>text</h1>
-        <p id="description">returns element text content</p>
+        <p id="description">returns element's text content</p>
     </header>
     <article>
         <h2>Example</h2>
@@ -17,6 +17,16 @@ parser.close()
         <h2 id="source">Source</h2>
         <pre><code>
 def text(self):
-    return self._text
+    if self._name is not 'comment':
+        ret = self._text
+        if self.has_child():
+            for child in self._children:
+                if ret is not '':
+                    ret += ' ' + child.text()
+                else:
+                    ret += child.text()
+        return ret
+    else:
+        return self.comment()
         </code></pre>
     </article>

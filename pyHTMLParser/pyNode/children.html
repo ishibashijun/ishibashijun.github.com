@@ -17,6 +17,10 @@ parser.close()
         <h2 id="source">Source</h2>
         <pre><code>
 def children(self):
-    return self._children
+    ret = []
+    for child in self._children:
+        if child.name() is not 'comment':
+            ret.append(child)
+    return ret
         </code></pre>
     </article>

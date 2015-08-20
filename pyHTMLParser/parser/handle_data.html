@@ -18,6 +18,10 @@ title: pyHTMLParser Docs | Parser.handle_data
         <h2 id="source">Source</h2>
         <pre><code>
 def handle_data(self, data):
-    if self._is_started: self._dom[-1].set_text(data)
+    if self._is_started:
+        text = data.replace('\r\n', '')
+        text = text.replace('\n', '')
+        text = text.replace('\t', '')
+        self._dom[-1].add_text(text.strip())
         </code></pre>
     </article>

@@ -1,0 +1,27 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Parser.handle_comment
+---
+    <header>
+        <h1>handle_comment</h1>
+        <p id="description">[internal] handles comment when constructing DOM tree</p>
+    </header>
+    <article>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+        <li>Name: data,&nbsp;<em>Type: str</em>
+        <ul>
+        <li>comment</li>
+        </ul>
+        </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def handle_comment(self, data):
+    if self._is_started:
+        node = pyNode('comment')
+        node.set_parent(self._dom[-1])
+        self._dom[-1].add_child(node)
+        node.add_comment(data)
+        </code></pre>
+    </article>
