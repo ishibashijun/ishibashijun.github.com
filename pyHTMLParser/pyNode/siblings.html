@@ -19,7 +19,10 @@ parser.close()
 def siblings(self):
     ret = pyNodeList()
     if self.has_parent():
-        ret.extend(self._parent.children())
+        children = self._parent.children()
+        for child in children:
+            if ch != self:
+                ret.append(ch)
     return ret
         </code></pre>
     </article>

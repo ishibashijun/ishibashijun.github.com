@@ -17,7 +17,7 @@ parser.close()
         <h2 id="source">Source</h2>
         <pre><code>
 def html(self):
-    if self._name is not 'comment':
+    if self._name != 'comment':
         if self._html != '': return self._html
         self._html += '&lt;'+self.name()
         for attr in self._attr:

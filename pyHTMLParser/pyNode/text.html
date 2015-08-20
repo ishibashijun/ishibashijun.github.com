@@ -17,11 +17,11 @@ parser.close()
         <h2 id="source">Source</h2>
         <pre><code>
 def text(self):
-    if self._name is not 'comment':
+    if self._name != 'comment':
         ret = self._text
         if self.has_child():
             for child in self._children:
-                if ret is not '':
+                if ret != '':
                     ret += ' ' + child.text()
                 else:
                     ret += child.text()

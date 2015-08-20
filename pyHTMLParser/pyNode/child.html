@@ -25,7 +25,7 @@ parser.close()
         <h2 id="source">Source</h2>
         <pre><code>
 def child(self, child_tag=None):
-    if childTag is None: return self._children
+    if childTag == None: return self._children
     ret = pyNodeList()
     for node in self._children:
         if node.name() == childTag:

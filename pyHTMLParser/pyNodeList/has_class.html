@@ -27,7 +27,7 @@ parser.close()
 def has_class(self, c):
     for node in self:
         n = node.attr('class')
-        if n.find(c) is not -1:
+        if n.find(c) != -1:
             return True
     return False
         </code></pre>

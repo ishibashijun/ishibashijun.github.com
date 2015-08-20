@@ -22,7 +22,7 @@ parser.close()
         <pre><code>
 def has_class(self, cls):
     if 'class' in self._attr:
-        return self._attr['class'].find(cls) is not -1
+        return self._attr['class'].find(cls) != -1
     return False
         </code></pre>
     </article>

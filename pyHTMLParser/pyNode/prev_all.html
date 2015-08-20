@@ -21,9 +21,9 @@ def prev_all(self):
     if self.has_parent():
         brothers = self._parent.children()
         for i in range(len(brothers)):
-            if brothers[i].name() is not 'comment':
+            if brothers[i].name() != 'comment':
                 bro = brothers[i]
-                if bro is self: break
+                if bro == self: break
                 ret.append(bro)
     return ret
         </code></pre>

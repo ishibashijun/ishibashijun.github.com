@@ -19,7 +19,7 @@ parser.close()
 def children(self):
     ret = []
     for child in self._children:
-        if child.name() is not 'comment':
+        if child.name() != 'comment':
             ret.append(child)
     return ret
         </code></pre>

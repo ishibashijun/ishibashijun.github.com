@@ -27,7 +27,7 @@ parser.close()
 def contains(self, text):
     ret = pyNodeList()
     for node in self:
-        if node.text().find(text) is not -1:
+        if node.text().find(text) != -1:
             ret.append(node)
     return ret
         </code></pre>

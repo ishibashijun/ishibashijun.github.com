@@ -20,7 +20,7 @@ def siblings(self):
     temp = pyNodeList()
     for node in self:
         brothers = node.siblings()
-        if len(brothers) is not 0:
+        if len(brothers) != 0:
             temp.extend(brothers)
     ret = pyNodeList()
     ret.append(temp[0])

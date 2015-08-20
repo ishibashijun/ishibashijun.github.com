@@ -22,10 +22,10 @@ def next_all(self):
         brothers = self._parent.children()
         pass_me = False
         for i in range(len(brothers)):
-            if brothers[i].name() is not 'comment':
+            if brothers[i].name() != 'comment':
                 bro = brothers[i]
                 if pass_me: ret.append(bro)
-                if bro is self: pass_me = True
+                if bro == self: pass_me = True
     return ret
         </code></pre>
     </article>
