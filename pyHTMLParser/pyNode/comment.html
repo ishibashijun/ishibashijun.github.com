@@ -19,7 +19,7 @@ parser.close()
 def comment(self):
     ret = []
     for comment in self._comment:
-        com = '<!--' + comment + '-->'
+        com = '&lt;!--' + comment + '--&gt;'
         ret.append(com)
     return ' '.join(ret)
         </code></pre>
