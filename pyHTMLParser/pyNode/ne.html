@@ -1,0 +1,26 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.ne
+---
+    <header>
+        <h1>__ne__</h1>
+        <p id="description">returns true if it does not equal</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+parser = Parser()
+parser.open("http://example.com")
+div_first = parser.tag('div').first()
+id_main = parser.id('main')
+print(str(div_first != id_main))
+parser.close()
+
+>> True
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def __ne__(self, node):
+    return not self.__eq__(node)
+        </code></pre>
+    </article>

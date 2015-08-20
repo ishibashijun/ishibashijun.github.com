@@ -1,0 +1,29 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Parser.header
+---
+    <header>
+        <h1>header</h1>
+        <p id="description">returns header elements</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+parser = Parser()
+parser.open("http://example.com")
+h1_h6 = parser.header()
+parser.close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def header(self):
+    ret = pyNodeList()
+    ret.extend(self._nodes.tag('h1'))
+    ret.extend(self._nodes.tag('h2'))
+    ret.extend(self._nodes.tag('h3'))
+    ret.extend(self._nodes.tag('h4'))
+    ret.extend(self._nodes.tag('h5'))
+    ret.extend(self._nodes.tag('h6'))
+    return ret
+        </code></pre>
+    </article>

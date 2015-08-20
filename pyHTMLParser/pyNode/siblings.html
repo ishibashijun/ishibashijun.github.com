@@ -1,0 +1,25 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.siblings
+---
+    <header>
+        <h1>siblings</h1>
+        <p id="description">returns siblings of a element</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+parser = Parser()
+parser.open("http://example.com")
+li = parser.tag('ul').first().child('li').eq(0).siblings()
+parser.close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def siblings(self):
+    ret = pyNodeList()
+    if self.has_parent():
+        ret.extend(self._parent.children())
+    return ret
+        </code></pre>
+    </article>
