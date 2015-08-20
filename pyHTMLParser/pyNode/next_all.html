@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNode.next_all
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-li = Parser.tag('ul').first().child('li').eq(3).next_all()
+li = parser.tag('ul').first().child('li').eq(3).next_all()
 parser.close()
         </code></pre>
         <h2 id="source">Source</h2>

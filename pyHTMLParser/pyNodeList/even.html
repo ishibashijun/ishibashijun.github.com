@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNodeList.even
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-li = Parser.tag('ul').id('list').child('li')
+li = parser.tag('ul').id('list').child('li')
 even_elements_of_list = li.even()
 parser.close()
         </code></pre>

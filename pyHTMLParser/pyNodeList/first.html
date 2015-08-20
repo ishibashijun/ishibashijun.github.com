@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNodeList.first
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-li = Parser.tag('ul').id('list').child('li')
+li = parser.tag('ul').id('list').child('li')
 first_element_of_list = li.first()
 parser.close()
         </code></pre>

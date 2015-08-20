@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNode.cls
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-link_class_names = Parser.tag('a').first().cls()
+link_class_names = parser.tag('a').first().cls()
 parser.close()
         </code></pre>
         <h2 id="source">Source</h2>

@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNode.str
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-div_main = Parser.tag('div').id('main')
+div_main = parser.tag('div').id('main')
 print(str(div_main))
 parser.close()
 

@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNode.comment
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-div_text = Parser.tag('div').first().comment()
+div_text = parser.tag('div').first().comment()
 parser.close()
         </code></pre>
         <h2 id="source">Source</h2>

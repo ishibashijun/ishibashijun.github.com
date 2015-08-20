@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNode.attr
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-link = Parser.tag('a').first().attr('href')
+link = parser.tag('a').first().attr('href')
 parser.close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>

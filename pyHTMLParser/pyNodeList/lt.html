@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNodeList.lt
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-li = Parser.tag('ul').id('list').child('li')
+li = parser.tag('ul').id('list').child('li')
 elems = li.lt(3)
 parser.close()
         </code></pre>
