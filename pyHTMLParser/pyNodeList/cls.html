@@ -27,9 +27,10 @@ parser.close()
         <pre><code>
 def cls(self, c):
     ret = pyNodeList()
+    cls_name = ('(' + c + ')')
     for node in self:
         n = node.attr('class')
-        if 'class' in self._attr and node.attr('class').find(c) is not -1:
+        if n is not None and cls_name.search(n) is not None:
             ret.append(node)
     return ret
         </code></pre>
