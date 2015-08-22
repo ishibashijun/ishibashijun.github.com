@@ -6,7 +6,6 @@ title: pyHTMLParser Docs | Parser.close
         <h1>close</h1>
         <p id="description">
             force processing of all buffered data,<br>
-            clear html text and DOM tree
         </p>
     </header>
     <article>
@@ -21,9 +20,5 @@ parser.close()
         <pre><code>
 def close(self):
     super(self.__class__, self).close()
-    self._html = ''
-    self._url = None
-    self._nodes = pyNodeList()
-    del self._dom[:]
         </code></pre>
     </article>
