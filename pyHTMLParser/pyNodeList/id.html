@@ -11,8 +11,7 @@ title: pyHTMLParser Docs | pyNodeList.id
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-divs = parser.tag('div')
-nav = divs.id('nav')
+div_main = parser.tag('div').id('main')
 parser.close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
