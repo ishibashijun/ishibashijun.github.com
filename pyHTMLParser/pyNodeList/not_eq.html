@@ -1,0 +1,34 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.not_eq
+---
+    <header>
+        <h1>not_eq</h1>
+        <p id="description">returns elements not a specified index element</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+parser = Parser()
+parser.open("http://example.com")
+ul = parser.tag('ul')
+li_not_three = ul.children().not_eq(3)
+parser.close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: i,&nbsp;<em>Type: int</em>
+                <ul>
+                    <li>index</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def not_eq(self, i):
+    ret = pyNodeList()
+    ret.extend(self.lt(i))
+    ret.extend(self.gt(i))
+    return ret
+        </code></pre>
+    </article>

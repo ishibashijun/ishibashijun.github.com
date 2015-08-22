@@ -1,0 +1,36 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.tag
+---
+    <header>
+        <h1>tag</h1>
+        <p id="description">returns elements matching a tag name</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+parser = Parser()
+parser.open("http://example.com")
+links = parser.cls('link')
+a = links.tag('a')
+parser.close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: tag,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>tag name</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def tag(self, tag):
+    t = tag.lower()
+    ret = pyNodeList()
+    for i in self:
+        if i.name() == t:
+            ret.append(i)
+    return ret
+        </code></pre>
+    </article>

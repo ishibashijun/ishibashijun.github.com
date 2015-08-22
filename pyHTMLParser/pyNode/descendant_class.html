@@ -1,0 +1,41 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.descendant_class
+---
+    <header>
+        <h1>descendant_class</h1>
+        <p id="description">returns descendants of a element matching a class name</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+parser = Parser()
+parser.open("http://example.com")
+ul = parser.tag('ul')
+links = ul.descendant_class('link')
+parser.close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: cls,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>class name</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def descendant_class(self, cls):
+    ret = pyNodeList()
+    cls_name = re.compile('(' + cls + ')')
+    if self.has_child() == True:
+        children = self.children()
+        for ch in children:
+            if ch.attr('class') is not None and cls_name.search(ch.attr('class')) is not None:
+                ret.append(ch)
+            descendant = ch.descendant_class(cls)
+            if len(descendant) != 0:
+                ret.extend(descendant)
+    return ret
+        </code></pre>
+    </article>

@@ -1,0 +1,41 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.descendant_tab
+---
+    <header>
+        <h1>descendant_tab</h1>
+        <p id="description">returns descendants of a element matching a tag name</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+parser = Parser()
+parser.open("http://example.com")
+ul = parser.tag('ul')
+a = ul.descendant_tab('a')
+parser.close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: tag,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>tab name</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def descendant_tag(self, tag):
+    t = tag.lower()
+    ret = pyNodeList()
+    if self.has_child() == True:
+        children = self.children()
+        for ch in children:
+            if ch.name() == t:
+                ret.append(ch)
+            descendant = ch.descendant_tag(t)
+            if len(descendant) != 0:
+                ret.extend(descendant)
+    return ret
+        </code></pre>
+    </article>

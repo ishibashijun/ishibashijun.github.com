@@ -1,0 +1,36 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.not_class
+---
+    <header>
+        <h1>not_class</h1>
+        <p id="description">returns elements not matching a class name</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+parser = Parser()
+parser.open("http://example.com")
+div = parser.tag('div')
+not_links = div.children().not_class('link')
+parser.close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: cls,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>class name</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def not_class(self, cls):
+    ret = pyNodeList()
+    cls_name = ('(' + cls + ')')
+    for node in self:
+        if node.attr('class') is None or cls_name.search(node.attr('class')) is None:
+            ret.append(node)
+    return ret
+        </code></pre>
+    </article>
