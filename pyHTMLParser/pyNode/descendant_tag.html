@@ -1,9 +1,9 @@
 ---
 layout: pyHTMLParser
-title: pyHTMLParser Docs | pyNode.descendant_tab
+title: pyHTMLParser Docs | pyNode.descendant_tag
 ---
     <header>
-        <h1>descendant_tab</h1>
+        <h1>descendant_tag</h1>
         <p id="description">returns descendants of a element matching a tag name</p>
     </header>
     <article>
@@ -12,14 +12,14 @@ title: pyHTMLParser Docs | pyNode.descendant_tab
 parser = Parser()
 parser.open("http://example.com")
 ul = parser.tag('ul')
-a = ul.descendant_tab('a')
+a = ul.descendant_tag('a')
 parser.close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: tag,&nbsp;<em>Type: str</em>
                 <ul>
-                    <li>tab name</li>
+                    <li>tag name</li>
                 </ul>
             </li>
         </ul>
