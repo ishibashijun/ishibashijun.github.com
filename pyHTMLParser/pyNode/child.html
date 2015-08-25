@@ -25,10 +25,10 @@ parser.close()
         <h2 id="source">Source</h2>
         <pre><code>
 def child(self, child_tag=None):
-    if childTag == None: return self._children
+    if child_tag is None: return self._children
     ret = pyNodeList()
     for node in self._children:
-        if node.name() == childTag:
+        if node.name() == child_tag:
             ret.append(node)
     return ret
         </code></pre>
