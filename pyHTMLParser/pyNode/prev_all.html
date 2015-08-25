@@ -20,11 +20,9 @@ def prev_all(self):
     ret = pyNodeList()
     if self.has_parent():
         brothers = self._parent.children()
-        for i in range(len(brothers)):
-            if brothers[i].name() != 'comment':
-                bro = brothers[i]
+        for bro in brothers:
+            if bro.name() != 'comment':
                 if bro == self: break
                 ret.append(bro)
-    return ret
         </code></pre>
     </article>
