@@ -17,17 +17,13 @@ parser.close()
         <h2 id="source">Source</h2>
         <pre><code>
 def siblings(self):
-    temp = pyNodeList()
+    ret = set()
     for node in self:
         brothers = node.siblings()
         if len(brothers) != 0:
-            temp.extend(brothers)
-    ret = pyNodeList()
-    ret.append(temp[0])
-    for t in temp:
-        for r in ret:
-            if t != r:
-                ret.append(t)
-    return ret
+            for bro in brothers:
+                ret.add(bro)
+    if len(ret) != 0: return pyNodeList(ret)
+    return pyNodeList()
         </code></pre>
     </article>

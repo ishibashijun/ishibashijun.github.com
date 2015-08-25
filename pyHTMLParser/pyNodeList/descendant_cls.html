@@ -1,22 +1,23 @@
 ---
 layout: pyHTMLParser
-title: pyHTMLParser Docs | pyNodeList.has_class
+title: pyHTMLParser Docs | pyNodeList.descendant_cls
 ---
     <header>
-        <h1>siblings</h1>
-        <p id="description">returns true if one or more of the elements has attribute class of the matching value</p>
+        <h1>descendant_cls</h1>
+        <p id="description">returns descendant elements matching a class name</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-is_main_exists = parser.tag('div').has_class('main')
+ul = parser.tag('ul')
+links = ul.descendant_cls('link')
 parser.close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
-            <li>Name: c,&nbsp;<em>Type: str</em>
+            <li>Name: cls,&nbsp;<em>Type: str</em>
                 <ul>
                     <li>class name</li>
                 </ul>
@@ -24,12 +25,12 @@ parser.close()
         </ul>
         <h2 id="source">Source</h2>
         <pre><code>
-def has_class(self, c):
-    cls_name = ('(' + c + ')')
+def descendant_cls(self, cls):
+    ret = pyNodeList()
     for node in self:
-        n = node.attr('class')
-        if n is not None and cls_name.search(n) is not None:
-            return True
-    return False
+        descendant = node.descendant_cls(cls)
+        if len(descendant) != 0:
+            ret.extend(descendant)
+    return ret
         </code></pre>
     </article>

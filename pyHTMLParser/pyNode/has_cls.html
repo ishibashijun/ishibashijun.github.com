@@ -1,9 +1,9 @@
 ---
 layout: pyHTMLParser
-title: pyHTMLParser Docs | pyNode.has_class
+title: pyHTMLParser Docs | pyNode.has_cls
 ---
     <header>
-        <h1>has_class</h1>
+        <h1>has_cls</h1>
         <p id="description">returns True if element has specified class attribute</p>
     </header>
     <article>
@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNode.has_class
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-link_class_names = parser.tag('a').first().cls()
+has_link_class = parser.tag('a').first().has_cls("link")
 parser.close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
@@ -20,9 +20,11 @@ parser.close()
         </ul>
         <h2 id="source">Source</h2>
         <pre><code>
-def has_class(self, cls):
+def has_cls(self, cls):
     if 'class' in self._attr:
-        return self._attr['class'].find(cls) != -1
+        cls_name = re.compile(cls)
+        if cls_name.search(self._attr['class']) is not None:
+            return True
     return False
         </code></pre>
     </article>
