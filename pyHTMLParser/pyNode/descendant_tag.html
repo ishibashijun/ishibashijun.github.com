@@ -11,7 +11,7 @@ title: pyHTMLParser Docs | pyNode.descendant_tag
         <pre><code>
 parser = Parser()
 parser.open("http://example.com")
-ul = parser.tag('ul')
+ul = parser.tag('ul').first()
 a = ul.descendant_tag('a')
 parser.close()
         </code></pre>
@@ -28,7 +28,7 @@ parser.close()
 def descendant_tag(self, tag):
     t = tag.lower()
     ret = pyNodeList()
-    if self.has_child() == True:
+    if self.has_child():
         children = self.children()
         for ch in children:
             if ch.name() == t:
