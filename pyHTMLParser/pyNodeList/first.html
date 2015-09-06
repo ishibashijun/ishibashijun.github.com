@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.first
 ---
     <header>
         <h1>first</h1>
-        <p id="description">returns first element of this list</p>
+        <p id="description">returns a first element of this elements.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').id('list').child('li')
-first_element_of_list = li.first()
-parser.close()
+Q_open("http://example.com")
+li_first = Q('#list &gt; li').first()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

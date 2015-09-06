@@ -1,0 +1,24 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.Q_close
+---
+    <header>
+        <h1>Q_open</h1>
+        <p id="description">force processing of all buffered data and clear internal data.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+## DO THING
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def Q_close():
+    global _parser
+    if _parser is not None:
+        _parser.close()
+        _parser.clear()
+        </code></pre>
+    </article>

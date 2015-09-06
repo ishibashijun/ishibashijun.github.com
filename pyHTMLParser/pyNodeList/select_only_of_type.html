@@ -1,0 +1,32 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_only_of_type
+---
+    <header>
+        <h1>select_only_of_type</h1>
+        <p id="description">returns elements that are the only element of their parent.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+unique_elem = Q('p').select_only_of_type()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_only_of_type(self):
+    ret = pyNodeList()
+    for node in self:
+        if node.has_parent():
+            tag_name = node.name()
+            duplicated = False
+            for ch in node.parent().children():
+                if ch != node and tag_name == ch.name():
+                    duplicated = True
+                    break
+            if not duplicated: ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

@@ -1,0 +1,34 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.attr_starts_with
+---
+    <header>
+        <h1>attr_starts_with</h1>
+        <p id="description">returns True if the attribute value starts with the given value.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+logos = Q('img').attr_starts_with('alt', 'logo')
+Q_close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: tag,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>tag name</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def attr_starts_with(self, attr, value):
+    a = self.attr(attr)
+    if a is not None:
+        starts = re.compile(value)
+        if starts.match(a) is not None:
+            return True
+    return False
+        </code></pre>
+    </article>

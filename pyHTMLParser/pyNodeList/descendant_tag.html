@@ -4,15 +4,13 @@ title: pyHTMLParser Docs | pyNodeList.descendant_tag
 ---
     <header>
         <h1>descendant_tag</h1>
-        <p id="description">returns descendant elements matching a tag name</p>
+        <p id="description">returns descendant matching the tag name.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-ul = parser.tag('ul')
-a = ul.descendant_tag('a')
+Q_open("http://example.com")
+a = Q('ul').descendant_tag('a')
 parser.close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
@@ -30,8 +28,11 @@ def descendant_tag(self, tag):
     ret = pyNodeList()
     for node in self:
         descendant = node.descendant_tag(t)
-        if len(descendant) != 0:
+        if isinstance(descendnat, pyNodeList) and len(descendant) != 0:
             ret.extend(descendant)
-    return ret
+        elif isinstance(descendant, pyNode):
+            ret.append(descendant)
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

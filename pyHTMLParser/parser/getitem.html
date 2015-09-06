@@ -1,0 +1,108 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Parser.__getitem__
+---
+    <header>
+        <h1>__getitem__</h1>
+        <p id="description">[internal] returns a method matching the name.</p>
+    </header>
+    <article>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: fn,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>method name</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def __getitem__(self, fn):
+    if fn == 'select_attr_contains_prefix':
+        return self.select_attr_contains_prefix
+    elif fn == 'select_attr_contains':
+        return self.select_attr_contains
+    elif fn == 'select_attr_contains_word':
+        return self.select_attr_contains_word
+    elif fn == 'select_attr_ends_with':
+        return self.select_attr_ends_with
+    elif fn == 'select_attr_not_equal':
+        return self.select_attr_not_equal
+    elif fn == 'select_attr_starts_with':
+        return self.select_attr_starts_with
+    elif fn == 'first':
+        return self.first
+    elif fn == 'last':
+        return self.last
+    elif fn == 'even':
+        return self.even
+    elif fn == 'odd':
+        return self.odd
+    elif fn == 'select_button':
+        return self.select_button
+    elif fn == 'select_checkbox':
+        return self.select_checkbox
+    elif fn == 'select_checked':
+        return self.select_checked
+    elif fn == 'select_disabled':
+        return self.select_disabled
+    elif fn == 'select_empty':
+        return self.select_empty
+    elif fn == 'select_enabled':
+        return self.select_enabled
+    elif fn == 'select_file':
+        return self.select_file
+    elif fn == 'select_first_child':
+        return self.select_first_child
+    elif fn == 'select_last_child':
+        return self.select_last_child
+    elif fn == 'select_first_of_type':
+        return self.select_first_of_type
+    elif fn == 'select_last_of_type':
+        return self.select_last_of_type
+    elif fn == 'select_image':
+        return self.select_image
+    elif fn == 'select_input':
+        return self.select_input
+    elif fn == 'eq':
+        return self.eq
+    elif fn == 'gt':
+        return self.gt
+    elif fn == 'lt':
+        return self.lt
+    elif fn == 'select_nth_child':
+        return self.select_nth_child
+    elif fn == 'select_nth_last_child':
+        return self.select_nth_last_child
+    elif fn == 'select_nth_last_of_type':
+        return self.select_nth_last_of_type
+    elif fn == 'select_nth_of_type':
+        return self.select_nth_of_type
+    elif fn == 'not_':
+        return self.not_
+    elif fn == 'select_has':
+        return self.select_has
+    elif fn == 'header':
+        return self.header
+    elif fn == 'select_only_child':
+        return self.select_only_child
+    elif fn == 'select_only_of_type':
+        return self.select_only_of_type
+    elif fn == 'select_parent':
+        return self.select_parent
+    elif fn == 'select_password':
+        return self.select_password
+    elif fn == 'select_radio':
+        return self.select_radio
+    elif fn == 'select_reset':
+        return self.select_reset
+    elif fn == 'select_root':
+        return self.select_root
+    elif fn == 'select_selected':
+        return self.select_selected
+    elif fn == 'select_submit':
+        return self.select_submit
+    elif fn == 'select_text':
+        return self.select_text
+        </code></pre>
+    </article>

@@ -1,0 +1,39 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.attr_ends_with
+---
+    <header>
+        <h1>attr_ends_with</h1>
+        <p id="description">returns True if the attribute value ends with the given value.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+logos = Q('img').attr_ends_with('alt', 'logo')
+Q_close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: attr,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>attribute</li>
+                </ul>
+            </li>
+            <li>Name: value,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>value</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def attr_ends_with(self, attr, value):
+    a = self.attr(attr)
+    if a is not None:
+        ends = re.compile(value + '$')
+        if ends.search(a) is not None:
+            return True
+    return False
+        </code></pre>
+    </article>

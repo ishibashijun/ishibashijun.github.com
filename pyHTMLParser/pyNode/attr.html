@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNode.attr
 ---
     <header>
         <h1>attr</h1>
-        <p id="description">returns attribute value or space separated values</p>
+        <p id="description">returns a attribute value or space separated values.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-link = parser.tag('a').first().attr('href')
-parser.close()
+Q_open("http://example.com")
+link = Q('a:first').attr('href')
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>

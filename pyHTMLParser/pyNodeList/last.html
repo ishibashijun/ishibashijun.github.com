@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.last
 ---
     <header>
         <h1>last</h1>
-        <p id="description">returns last element of this list</p>
+        <p id="description">returns a last element of this elements.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').id('list').child('li')
-last_element_of_list = li.last()
-parser.close()
+Q_open("http://example.com")
+last_elem = Q('#list &gt; li').last()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

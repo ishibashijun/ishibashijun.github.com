@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNode.has_child
 ---
     <header>
         <h1>has_child</h1>
-        <p id="description">returns True if element has child tag</p>
+        <p id="description">returns True if the element has child element(s).</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div_has_child = parser.tag('div').first().has_child()
-parser.close()
+Q_open("http://example.com")
+has_child = Q('div:first').has_child()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

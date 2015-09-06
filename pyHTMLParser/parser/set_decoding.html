@@ -4,15 +4,16 @@ title: pyHTMLParser Docs | Parser.set_decoding
 ---
     <header>
         <h1>set_decoding</h1>
-        <p id="description">set decoding</p>
+        <p id="description">set decoding.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
 parser = Parser()
 parser.set_decoding('utf-8')
-parser.open("http://example.com")
-parser.close()
+Q_open('http://example.com', parser)
+// DO THINGS
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>

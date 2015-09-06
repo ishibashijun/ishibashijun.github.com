@@ -1,0 +1,29 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.prev_element
+---
+    <header>
+        <h1>prev_element</h1>
+        <p id="description">returns an element that is previous.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+second = Q('ul:first &gt; li:nth-child(2)')
+first_li = second.prev_element()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def prev_element(self):
+    if self.has_parent():
+        brothers = self._parent.children()
+        if isinstance(brothers, pyNodeList) and len(brothers) != 0:
+            for i in range(len(brothers)):
+                if brothers[i].name() != 'comment':
+                    if brothers[i] == self and i != 0:
+                        return brothers[i - 1]
+    return None
+        </code></pre>
+    </article>

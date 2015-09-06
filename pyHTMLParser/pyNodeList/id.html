@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.id
 ---
     <header>
         <h1>id</h1>
-        <p id="description">returns a element matching a id name</p>
+        <p id="description">returns an element that is matching the id name.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div_main = parser.tag('div').id('main')
-parser.close()
+Q_open("http://example.com")
+div_main = Q('div').id('main')
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>

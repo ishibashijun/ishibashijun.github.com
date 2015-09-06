@@ -4,16 +4,9 @@ title: pyHTMLParser Docs | Parser.open
 ---
     <header>
         <h1>open</h1>
-        <p id="description">open a web request, extract html then construct DOM tree</p>
+        <p id="description">[internal] open a web request, extract html.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-# TODO
-parser.close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: url,&nbsp;<em>Type: str</em>
@@ -39,6 +32,5 @@ def open(self, url=None):
         raise Exception('Error connecting at %s' % self._url)
     self._html = res.read().decode(self._decoder)
     res.close()
-    self.feed(self._html)
         </code></pre>
     </article>

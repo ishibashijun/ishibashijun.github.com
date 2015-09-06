@@ -1,0 +1,27 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_only_child
+---
+    <header>
+        <h1>cls</h1>
+        <p id="description">returns elements that are the only child of their parent.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+alone_elem = Q('p').select_only_child()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_only_child(self):
+    ret = pyNodeList()
+    for node in self:
+        if node.has_parent():
+            if len(node.parent().children()) == 1:
+                ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

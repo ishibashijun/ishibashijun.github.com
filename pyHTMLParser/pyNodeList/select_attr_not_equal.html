@@ -1,0 +1,40 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_attr_not_equal
+---
+    <header>
+        <h1>select_attr_not_equal</h1>
+        <p id="description">returns elements that have the specified attribute and the value that is not equals to the given value.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+not_logo = Q('img').select_attr_not_equal('alt', 'logo')
+Q_close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: attr,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>attribute</li>
+                </ul>
+            </li>
+            <li>Name: value,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>value</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_attr_not_equal(self, attr, value):
+    ret = pyNodeList()
+    for node in self:
+        a = node.attr(attr)
+        if a is None or a != value:
+            ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

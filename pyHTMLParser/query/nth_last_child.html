@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.nth_last_child
+---
+    <header>
+        <h1>:nth-last-child(n)</h1>
+        <p id="description">returns specified index of child elements of their parent from last.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+second_from_last = Q('ul &gt; li:nth-last-child(2)')
+fifth_from_last = Q('div:nth-last-child(5)')
+Q_close()
+        </code></pre>
+    </article>

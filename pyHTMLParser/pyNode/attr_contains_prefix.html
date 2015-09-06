@@ -1,0 +1,38 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.attr_contains_prefix
+---
+    <header>
+        <h1>attr_contains_prefix</h1>
+        <p id="description">returns True if attribute of the element starts with given value.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+english = Q(':lang').attr_contains_prefix('en')
+Q_close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: attr,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>attribute</li>
+                </ul>
+            </li>
+            <li>Name: value,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>value</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def attr_contains_prefix(self, attr, value):
+    a = self.attr(attr)
+    if a is not None:
+        if a.find(value) == 0 and a[len(value)] == '-':
+            return True
+    return False
+        </code></pre>
+    </article>

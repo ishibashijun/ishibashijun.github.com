@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.attribute_ends_with
+---
+    <header>
+        <h1>[attribute$=value]</h1>
+        <p id="description">returns elements that have the given attribute and the value that ends with the given value.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+english1 = Q('div[lang$=us]')
+english2 = Q('div[lang$=uk]')
+Q_close()
+        </code></pre>
+    </article>

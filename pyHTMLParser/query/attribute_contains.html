@@ -1,0 +1,16 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.attribute_contains
+---
+    <header>
+        <h1>[attribute*=value]</h1>
+        <p id="description">returns elements that have the given attribute and the value that contains the given value.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+img_logo = Q('img[alt*=logo]')
+Q_close()
+        </code></pre>
+    </article>

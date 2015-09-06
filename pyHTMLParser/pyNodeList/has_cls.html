@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.has_cls
 ---
     <header>
         <h1>has_cls</h1>
-        <p id="description">returns true if one or more of the elements has attribute class of the matching value</p>
+        <p id="description">returns True if one or more of elements have the attribute class of the matching value.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-is_main_exists = parser.tag('div').has_class('main')
-parser.close()
+Q_open("http://example.com")
+main_class = Q('div').has_class('main')
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
@@ -24,11 +23,11 @@ parser.close()
         </ul>
         <h2 id="source">Source</h2>
         <pre><code>
-def has_class(self, cls):
-    cls_name = (cls)
+def has_cls(self, c):
+    cls_name = re.compile(c)
     for node in self:
-        c = node.attr('class')
-        if c is not None and cls_name.search(c) is not None:
+        n = node.attr('class')
+        if n is not None and cls_name.search(n) is not None:
             return True
     return False
         </code></pre>

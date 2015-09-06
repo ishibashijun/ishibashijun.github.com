@@ -1,0 +1,28 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_selected
+---
+    <header>
+        <h1>select_selected</h1>
+        <p id="description">returns selected elements.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+selected = Q('input').select_selected()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_selected(self):
+    ret = pyNodeList()
+    for node in self:
+        if node.name() == 'option':
+            s = node.attr('selected')
+            if s is not None and (s.lower() == 'selected' or s == ''):
+                ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

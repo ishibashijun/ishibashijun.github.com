@@ -1,0 +1,36 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_first_of_type
+---
+    <header>
+        <h1>select_first_of_type</h1>
+        <p id="description">returns elements that are the first of the type.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+first_of_type = Q('div').select_first_of_type()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_first_of_type(self):
+    parents = list()
+    tag = self[0].name()
+    for node in self:
+        duplicated = False
+        for p in parents:
+            if p == node.parent():
+                duplicated = True
+                break
+        if not duplicated: parents.append(node.parent())
+    ret = pyNodeList()
+    for parent in parents:
+        n = parent.child(tag)
+        if isinstance(n, pyNodeList) and len(n) != 0: n = n.first()
+        if n is not None: ret.append(n)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

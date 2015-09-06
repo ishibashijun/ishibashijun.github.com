@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNode.comment
 ---
     <header>
         <h1>comment</h1>
-        <p id="description">returns element's comment</p>
+        <p id="description">returns the comment.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div_text = parser.tag('div').first().comment()
-parser.close()
+Q_open("http://example.com")
+all_comment = Q('body').comment()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

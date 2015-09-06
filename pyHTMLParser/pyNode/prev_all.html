@@ -4,15 +4,15 @@ title: pyHTMLParser Docs | pyNode.prev_all
 ---
     <header>
         <h1>prev_all</h1>
-        <p id="description">returns elements before this elements that in same DOM hierarchy</p>
+        <p id="description">returns elements before this element that are in the same DOM hierarchy.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').first().child('li').eq(3).prev_all()
-parser.close()
+Q_open("http://example.com")
+third = Q('ul:first &gt; li:eq(3)')
+li = third.prev_all()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>
@@ -20,9 +20,14 @@ def prev_all(self):
     ret = pyNodeList()
     if self.has_parent():
         brothers = self._parent.children()
-        for bro in brothers:
-            if bro.name() != 'comment':
-                if bro == self: break
-                ret.append(bro)
+        if isinstance(brothers, pyNodeList) and len(brothers) != 0:
+            for bro in brothers:
+                if bro.name() != 'comment':
+                    if bro == self: break
+                    ret.append(bro)
+        elif isinstance(brothers, pyNode):
+            ret.append(brothers)
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

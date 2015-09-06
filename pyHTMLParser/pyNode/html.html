@@ -4,30 +4,31 @@ title: pyHTMLParser Docs | pyNode.html
 ---
     <header>
         <h1>html</h1>
-        <p id="description">returns element's html content</p>
+        <p id="description">returns the html content.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div_html = parser.tag('div').first().html()
-parser.close()
+Q_open("http://example.com")
+div_html = Q('div:first').html()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>
 def html(self):
     if self._name != 'comment':
         if self._html != '': return self._html
-        self._html += '&lt;'+self.name()
+        self._html += '&lt;' + self.name()
         for attr in self._attr:
-            self._html += ' '+attr+'="'+self._attr[attr]+'"'
-        self._html += '&gt;'+self._text
+            a = self._attr[attr]
+            if a is not None:
+                self._html += ' ' + attr + '="' + self._attr[attr] + '"'
+        self._html += '&gt;' + self._text
         if not is_self_closing(self.name()):
             if self.has_child:
                 for ch in self._children:
                     self._html += ch.html()
-            self._html += '&lt;/'+self.name()+'&gt;'
+            self._html += '&lt;/' + self.name() + '&gt;'
         return self._html
     else:
         return self.comment()

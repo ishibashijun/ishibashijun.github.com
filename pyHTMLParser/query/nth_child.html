@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.nth_child
+---
+    <header>
+        <h1>:nth-child(n)</h1>
+        <p id="description">returns specified index of child elements of their parent.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+second = Q('ul &gt; li:nth-child(2)')
+fifth = Q('div:nth-child(5)')
+Q_close()
+        </code></pre>
+    </article>

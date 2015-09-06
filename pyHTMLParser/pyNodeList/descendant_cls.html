@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.descendant_cls
 ---
     <header>
         <h1>descendant_cls</h1>
-        <p id="description">returns descendant elements matching a class name</p>
+        <p id="description">returns descendant matching the class name.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-ul = parser.tag('ul')
-links = ul.descendant_cls('link')
-parser.close()
+Q_open("http://example.com")
+links = Q('ul').descendant_cls('link')
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
@@ -28,9 +26,12 @@ parser.close()
 def descendant_cls(self, cls):
     ret = pyNodeList()
     for node in self:
-        descendant = node.descendant_cls(cls)
-        if len(descendant) != 0:
+        descendant = node.descendant_class(cls)
+        if isinstance(descendant, pyNodeList) and len(descendant) != 0:
             ret.extend(descendant)
-    return ret
+        elif isinstance(descendant, pyNode):
+            ret.append(descendant)
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

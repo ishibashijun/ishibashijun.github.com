@@ -1,0 +1,33 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_prev
+---
+    <header>
+        <h1>select_prev</h1>
+        <p id="description">returns elements that are previous element.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+divs_previous = Q('div').select_prev()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_prev(self):
+    ret = pyNodeList()
+    for node in self:
+        p = node.prev_element()
+        if p is not None:
+            duplicated = False
+            if len(ret) != 0:
+                for r in ret:
+                    if r == p:
+                        duplicated = True
+                        break
+            if not duplicated: ret.append(p)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

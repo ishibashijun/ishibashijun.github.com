@@ -1,22 +1,21 @@
 ---
 layout: pyHTMLParser
-title: pyHTMLParser Docs | pyNode.eq
+title: pyHTMLParser Docs | pyNode.__eq__
 ---
     <header>
         <h1>__eq__</h1>
-        <p id="description">returns true if it equals</p>
+        <p id="description">returns True if it equals.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div_main = parser.tag('div').id('main')
-id_main = parser.id('main')
-print(str(div_main == id_main))
-parser.close()
-
->> True
+Q_open("http://example.com")
+second_li = Q('#links &gt; li:nth-child(2)')
+li = Q('#links &gt; li')
+for l in li:
+    if l == second_li:
+        print('second')
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>
@@ -24,8 +23,7 @@ def __eq__(self, node):
     if self._name == node._name and \
        self._attr == node._attr and \
        self._html == node._html and \
-       self._parent == node._parent and \
-       self._children == node._children:
+       self._parent == node._parent and:
         return True
     return False
         </code></pre>

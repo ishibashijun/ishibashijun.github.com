@@ -1,0 +1,27 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.header
+---
+    <header>
+        <h1>header</h1>
+        <p id="description">returns header elements.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+h = Q('body').header()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def header(self):
+    ret = pyNodeList()
+    h = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+    for node in self:
+        if node.name() in h:
+            ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else return ret
+        </code></pre>
+    </article>

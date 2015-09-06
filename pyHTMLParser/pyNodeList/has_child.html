@@ -1,0 +1,23 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.has_child
+---
+    <header>
+        <h1>has_child</h1>
+        <p id="description">returns True if every element have child element(s).</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+have_child = Q('div').has_child()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def has_child(self):
+    for node in self:
+        if not node.has_child(): return False
+    return True
+        </code></pre>
+    </article>

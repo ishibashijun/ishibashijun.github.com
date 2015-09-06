@@ -1,0 +1,29 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.descendant
+---
+    <header>
+        <h1>descendant</h1>
+        <p id="description">returns descendant elements.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+divs_descendant = Q('div').descendant()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def descendant(self):
+    ret = pyNodeList()
+    for node in self:
+        d = node.descendant()
+        if isinstance(d, pyNodeList) and len(d) != 0:
+            ret.extend(d)
+        elif isinstance(d, pyNode):
+            ret.append(d)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

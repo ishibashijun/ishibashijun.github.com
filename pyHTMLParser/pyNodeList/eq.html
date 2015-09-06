@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.eq
 ---
     <header>
         <h1>eq</h1>
-        <p id="description">returns a single element at the specified index</p>
+        <p id="description">returns an element at the specified index.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').id('list').child('li')
-third_element_of_list = li.eq(3)
-parser.close()
+Q_open("http://example.com")
+third_elem = Q('#list &gt; li').eq(3)
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>

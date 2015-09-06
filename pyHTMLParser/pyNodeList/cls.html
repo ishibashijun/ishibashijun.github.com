@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.cls
 ---
     <header>
         <h1>cls</h1>
-        <p id="description">returns elements matching a class name</p>
+        <p id="description">returns elements that are matching the class name.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-divs = parser.tag('div')
-tags = divs.cls('tag')
-parser.close()
+Q_open("http://example.com")
+links = Q('a').cls('link')
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
@@ -27,11 +25,12 @@ parser.close()
         <pre><code>
 def cls(self, c):
     ret = pyNodeList()
-    cls_name = (c)
+    cls_name = re.compile(c)
     for node in self:
         n = node.attr('class')
         if n is not None and cls_name.search(n) is not None:
             ret.append(node)
-    return ret
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

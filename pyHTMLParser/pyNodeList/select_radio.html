@@ -1,0 +1,27 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_radio
+---
+    <header>
+        <h1>select_radio</h1>
+        <p id="description">returns elements that are type radio.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+radios = Q('input').select_radio()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_radio(self):
+    ret = pyNodeList()
+    for node in self:
+        t = node.attr('type')
+        if t is not None and t.lower() == 'radio':
+            ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

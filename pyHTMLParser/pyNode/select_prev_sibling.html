@@ -1,0 +1,30 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.select_prev_sibling
+---
+    <header>
+        <h1>select_prev_sibling</h1>
+        <p id="description">returns the sibling that is from previous element.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+fourth = Q('ul:first &gt; li:nth-child(4)')
+li_0_2 = fourth.select_prev_sibling()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_prev_sibling(self):
+    ret = pyNodeList()
+    n = self.prev_all()
+    if isinstance(n, pyNode):
+        ret.append(n)
+    else:
+        for elem in n:
+            ret.append(elem)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

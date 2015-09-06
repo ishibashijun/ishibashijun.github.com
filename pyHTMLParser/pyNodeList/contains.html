@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.contains
 ---
     <header>
         <h1>contains</h1>
-        <p id="description">returns elements containing specified text</p>
+        <p id="description">returns elements that are containing the specified text.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-greeting = parser.tag('p').contains('Hello World')
-parser.close()
+Q_open("http://example.com")
+greeting = Q('p').contains('Hello World')
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
@@ -29,6 +28,7 @@ def contains(self, text):
     for node in self:
         if node.text().find(text) != -1:
             ret.append(node)
-    return ret
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

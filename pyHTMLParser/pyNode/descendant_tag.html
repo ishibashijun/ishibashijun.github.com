@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNode.descendant_tag
 ---
     <header>
         <h1>descendant_tag</h1>
-        <p id="description">returns descendants of a element matching a tag name</p>
+        <p id="description">returns descendant of this element that is matching the element name.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-ul = parser.tag('ul').first()
-a = ul.descendant_tag('a')
-parser.close()
+Q_open("http://example.com")
+a = Q('ul:first').descendant_tag('a')
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
@@ -30,12 +28,24 @@ def descendant_tag(self, tag):
     ret = pyNodeList()
     if self.has_child():
         children = self.children()
-        for ch in children:
-            if ch.name() == t:
-                ret.append(ch)
-            descendant = ch.descendant_tag(t)
-            if len(descendant) != 0:
+        if isinstance(children, pyNodeList) and len(children) != 0:
+            for ch in children:
+                if ch.name() == t:
+                    ret.append(ch)
+                descendant = ch.descendant_tag(t)
+                if isinstance(descendant, pyNodeList) and len(descendant) != 0:
+                    ret.extend(descendant)
+                elif isinstance(descendant, pyNode):
+                    ret.append(descendant)
+        elif isinstance(children, pyNode):
+            if children.name() == t:
+                ret.append(children)
+            descendant = children.descendant_tag(t)
+            if isinstance(descendant, pyNodeList) and len(descendant) != 0:
                 ret.extend(descendant)
-    return ret
+            elif isinstance(descendant, pyNode):
+                ret.append(descendant)
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

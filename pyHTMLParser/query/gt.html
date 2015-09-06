@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.gt
+---
+    <header>
+        <h1>:gt(i)</h1>
+        <p id="description">returns elements that are greater than the specifed index element.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+from_third = Q('ul &gt; li:gt(2)')
+from_sixth = Q('div:gt(5)')
+Q_close()
+        </code></pre>
+    </article>

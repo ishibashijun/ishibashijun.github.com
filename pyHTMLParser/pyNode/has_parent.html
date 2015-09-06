@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNode.has_parent
 ---
     <header>
         <h1>has_parent</h1>
-        <p id="description">returns True if element has parent tag</p>
+        <p id="description">returns True if the element has a parent element.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-a_has_parent = parser.tag('a').first().has_parent()
-parser.close()
+Q_open("http://example.com")
+has_parent = Q('a').has_parent()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.next_sibling
+---
+    <header>
+        <h1>element ~ element</h1>
+        <p id="description">returns sibling that are greater than or equals to a next element.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+p = Q('ul ~ p')
+img = Q('p ~ img')
+Q_close()
+        </code></pre>
+    </article>

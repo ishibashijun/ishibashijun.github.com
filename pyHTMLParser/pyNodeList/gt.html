@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.gt
 ---
     <header>
         <h1>gt</h1>
-        <p id="description">returns elements greater than specified index</p>
+        <p id="description">returns elements that are the greater than specified index.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').id('list').child('li')
-elems = li.gt(3)
-parser.close()
+Q_open("http://example.com")
+elems = Q('#list &gt; li').gt(3)
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>

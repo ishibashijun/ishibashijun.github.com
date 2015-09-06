@@ -1,0 +1,26 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_parent
+---
+    <header>
+        <h1>select_parent</h1>
+        <p id="description">[internal] returns elements that have at least one child or text.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+parent_elems = Q('div').select_parent()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_parent(self):
+    ret = pyNodeList()
+    for node in self:
+        if len(node.children()) != 0 or len(node.text()) != 0:
+            ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

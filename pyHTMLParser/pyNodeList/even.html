@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.even
 ---
     <header>
         <h1>even</h1>
-        <p id="description">returns even elements</p>
+        <p id="description">returns even elements.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').id('list').child('li')
-even_elements_of_list = li.even()
-parser.close()
+Q_open("http://example.com")
+even_elems = Q('#list &gt; li').even()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>
@@ -23,6 +21,7 @@ def even(self):
     for node in self:
         if is_even: ret.append(node)
         is_even = not is_even
-    return ret
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

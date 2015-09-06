@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.not
+---
+    <header>
+        <h1>:not(element(s))</h1>
+        <p id="description">returns elements that are not in the given element(s).</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+not_logo = Q('img:not(img[alt=logo])')
+not_link = Q('a:not(a[class=link])')
+Q_close()
+        </code></pre>
+    </article>

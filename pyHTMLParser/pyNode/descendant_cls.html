@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNode.descendant_cls
 ---
     <header>
         <h1>descendant_cls</h1>
-        <p id="description">returns descendants of a element matching a class name</p>
+        <p id="description">returns descendant of this element that is matching the class name.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div = parser.tag('div').first()
-links = div.descendant_cls('link')
-parser.close()
+Q_open("http://example.com")
+links = Q('ul:first').descendant_cls('link')
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
@@ -30,13 +28,26 @@ def descendant_cls(self, cls):
     cls_name = re.compile(cls)
     if self.has_child():
         children = self.children()
-        for ch in children:
-            c = ch.attr('class')
+        if isinstance(children, pyNodeList) and len(children) != 0:
+            for ch in children:
+                c = ch.attr('class')
+                if c is not None and cls_name.search(c) is not None:
+                    ret.append(ch)
+                descendant = ch.descendant_cls(cls)
+                if isinstance(descendant, pyNodeList) and len(descendant) != 0:
+                    ret.extend(descendant)
+                elif isinstance(descendant, pyNode):
+                    ret.append(descendant)
+        elif isinstance(children, pyNode):
+            c = children.attr('class')
             if c is not None and cls_name.search(c) is not None:
-                ret.append(ch)
-            descendant = ch.descendant_cls(cls)
-            if len(descendant) != 0:
+                ret.append(children)
+            descendant = children.descendant_cls(cls)
+            if isinstance(descendant, pyNodeList) and len(descendant) != 0:
                 ret.extend(descendant)
-    return ret
+            elif isinstance(descendant, pyNode):
+                ret.append(descendant)
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

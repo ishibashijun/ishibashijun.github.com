@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNode.has_cls
 ---
     <header>
         <h1>has_cls</h1>
-        <p id="description">returns True if element has specified class attribute</p>
+        <p id="description">returns True if the element has a specified class attribute value.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-has_link_class = parser.tag('a').first().has_cls("link")
-parser.close()
+Q_open("http://example.com")
+link_class = Q('a:first').has_cls("link")
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>

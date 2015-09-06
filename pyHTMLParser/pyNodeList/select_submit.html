@@ -1,0 +1,27 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Parser.select_submit
+---
+    <header>
+        <h1>select_submit</h1>
+        <p id="description">returns elements that are type submit.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+submits = Q('input').select_submit()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_submit(self):
+    ret = pyNodeList()
+    for node in self:
+        t = node.attr('type')
+        if t is not None and t.lower() == 'submit':
+            ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

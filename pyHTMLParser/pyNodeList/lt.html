@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.lt
 ---
     <header>
         <h1>lt</h1>
-        <p id="description">returns elements less than specified index</p>
+        <p id="description">returns elements that are the less than specified index.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').id('list').child('li')
-elems = li.lt(3)
-parser.close()
+Qopen("http://example.com")
+elems = Q('#list &gt; li').lt(3)
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>

@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.has
+---
+    <header>
+        <h1>:has(element(s))</h1>
+        <p id="description">returns elements that have given element(s).</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+div_has_p = Q('div:has(p)')
+li_has_a = Q('li:has(a)')
+Q_close()
+        </code></pre>
+    </article>

@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.nth_last_of_type
+---
+    <header>
+        <h1>:nth-last-of-type(n)</h1>
+        <p id="description">returns elements that are the specified index of type from last.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+second_from_last = Q('article:nth-last-of-type(2)')
+fifth_from_last = Q('div:nth-last-of-type(5)')
+Q_close()
+        </code></pre>
+    </article>

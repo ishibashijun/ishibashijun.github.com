@@ -1,0 +1,40 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.not_
+---
+    <header>
+        <h1>not_</h1>
+        <p id="description">returns elements that are not in the given elements.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+class_main = Q('.main')
+divs_not_main = Q('div').not_(class_main)
+Q_close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: pynodelist,&nbsp;<em>Type: pyNodeList</em>
+                <ul>
+                    <li>pyNodeList</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def not_(self, pynodelist):
+    ret = pyNodeList()
+    for node in self:
+        dif = True
+        for another in pynodelist:
+            if node == another:
+                dif = False
+                break
+        if dif:
+            ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

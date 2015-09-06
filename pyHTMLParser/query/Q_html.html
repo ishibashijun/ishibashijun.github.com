@@ -1,0 +1,34 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.Q_html
+---
+    <header>
+        <h1>Q_html</h1>
+        <p id="description">constructs DOM tree from the html.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_html('html_str')
+// DO THINGS
+Q_close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: html,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>html str</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def Q_html(html):
+    global _parser
+    if _parser is not None:
+        _parser.close()
+        _parser.clear()
+        _parser.set_html(html)
+        _parser.construct()
+        </code></pre>
+    </article>

@@ -1,0 +1,19 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Parser.clear
+---
+    <header>
+        <h1>clear</h1>
+        <p id="description">[internal] clear html text and DOM tree.</p>
+    </header>
+    <article>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def clear(self):
+    self._html = ''
+    self._url = None
+    self._nodes = pyNodeList()
+    self._is_started = False
+    del self._dom[:]
+        </code></pre>
+    </article>

@@ -101,6 +101,18 @@ pre code {
 #sidebar h2 {
     margin-left: 25px;
     margin-bottom: 5px;
+    cursor: pointer;
+}
+
+#sidebar h2#h1 {
+    font-size: 1.75em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 1px #ccc;
+    cursor: auto;
+}
+
+#sidebar h4 {
+    margin-bottom: 5px;
 }
 
 #sidebar h4 span {
@@ -113,9 +125,29 @@ pre code {
     margin-bottom: 15px;
 }
 
+#sidebarParser_list {
+    display: none;
+}
+
+#sidebarPyNodeList_list {
+    display: none;
+}
+
+#sidebarPyNode_list {
+    display: none;
+}
+
+#sidebarQuery_list {
+    display: none;
+}
+
 #sidebar li {
     line-height: 20px;
     margin-left: 25px;
+}
+
+#sidebarQSelectors li {
+    margin-left: 5px;
 }
 
 #main {

@@ -1,0 +1,29 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.children
+---
+    <header>
+        <h1>children</h1>
+        <p id="description">returns child elements.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+divs_children = Q('div').children()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def children(self):
+    ret = pyNodeList()
+    for node in self:
+        ch = node.children()
+        if isinstance(ch, pyNodeList) and len(ch) != 0:
+            ret.extend(ch)
+        elif isinstance(ch, pyNode):
+            ret.append(ch)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

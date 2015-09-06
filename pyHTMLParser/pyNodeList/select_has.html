@@ -1,0 +1,43 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_has
+---
+    <header>
+        <h1>select_has</h1>
+        <p id="description">returns elements that have given elements.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+p = Q('p')
+divs_with_p = Q('div').select_has(p)
+Q_close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: pynodelist,&nbsp;<em>Type: pyNodeList</em>
+                <ul>
+                    <li>elements</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_has(self, pynodelist):
+    ret = pyNodeList()
+    for node in self:
+        descendant = node.descendant()
+        if isinstance(descendant, pyNode):
+            for another in pynodelist:
+                if descendant == another:
+                    ret.append(node)
+        elif isinstance(descendant, pyNodeList) and len(descendant) != 0:
+            for d in descendant:
+                for another in pynodelist:
+                    if d == another:
+                        ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

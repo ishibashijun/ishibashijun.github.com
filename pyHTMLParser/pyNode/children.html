@@ -4,23 +4,23 @@ title: pyHTMLParser Docs | pyNode.children
 ---
     <header>
         <h1>children</h1>
-        <p id="description">returns child tags</p>
+        <p id="description">returns child element(s).</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').first().children()
-parser.close()
+Q_open("http://example.com")
+ul_children = Q('ul:first').children()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>
 def children(self):
-    ret = []
+    ret = pyNodeList()
     for child in self._children:
         if child.name() != 'comment':
             ret.append(child)
-    return ret
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

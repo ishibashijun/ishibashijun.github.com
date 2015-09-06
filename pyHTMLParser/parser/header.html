@@ -4,26 +4,25 @@ title: pyHTMLParser Docs | Parser.header
 ---
     <header>
         <h1>header</h1>
-        <p id="description">returns header elements</p>
+        <p id="description">[internal] returns header elements.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-h1_h6 = parser.header()
-parser.close()
-        </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>
 def header(self):
     ret = pyNodeList()
-    ret.extend(self._nodes.tag('h1'))
-    ret.extend(self._nodes.tag('h2'))
-    ret.extend(self._nodes.tag('h3'))
-    ret.extend(self._nodes.tag('h4'))
-    ret.extend(self._nodes.tag('h5'))
-    ret.extend(self._nodes.tag('h6'))
+    h = list()
+    h.append(self._nodes.tag('h1'))
+    h.append(self._nodes.tag('h2'))
+    h.append(self._nodes.tag('h3'))
+    h.append(self._nodes.tag('h4'))
+    h.append(self._nodes.tag('h5'))
+    h.append(self._nodes.tag('h6'))
+    for elem in h:
+        if isinstance(elem, pyNodeList) and len(elem) != 0:
+            ret.extend(elem)
+        elif isinstance(elem, pyNode):
+            ret.append(elem)
     return ret
         </code></pre>
     </article>

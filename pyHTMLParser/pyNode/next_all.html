@@ -4,15 +4,15 @@ title: pyHTMLParser Docs | pyNode.next_all
 ---
     <header>
         <h1>next_all</h1>
-        <p id="description">returns elements after this elements that in same DOM hierarchy</p>
+        <p id="description">returns elements after this element that are in the same DOM hierarchy.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').first().child('li').eq(3).next_all()
-parser.close()
+Q_open("http://example.com")
+third = Q('ul:first &gt; li:eq(3)')
+li = third.next_all()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>
@@ -20,11 +20,13 @@ def next_all(self):
     ret = pyNodeList()
     if self.has_parent():
         brothers = self._parent.children()
-        pass_me = False
-        for bro in brothers:
-            if bro.name() != 'comment':
-                if pass_me: ret.append(bro)
-                if bro == self: pass_me = True
-    return ret
+        if isinstance(brothers, pyNodeList) and len(brothers) != 0:
+            passed = False
+            for bro in brothers:
+                if bro.name() != 'comment':
+                    if passed: ret.append(bro)
+                    if not passed and bro == self: passed = True
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNode.child
 ---
     <header>
         <h1>child</h1>
-        <p id="description">returns specified child elements or children</p>
+        <p id="description">returns specified child elements or all child elements.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').first().child('li')
-parser.close()
+Q_open("http://example.com")
+li = Q('ul:first').child('li')
+Q_close()
         </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
@@ -24,12 +23,13 @@ parser.close()
         </ul>
         <h2 id="source">Source</h2>
         <pre><code>
-def child(self, child_tag=None):
-    if child_tag is None: return self._children
+def child(self, child_tag = None):
+    if child_tag is None: return self.children()
     ret = pyNodeList()
     for node in self._children:
         if node.name() == child_tag:
             ret.append(node)
-    return ret
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

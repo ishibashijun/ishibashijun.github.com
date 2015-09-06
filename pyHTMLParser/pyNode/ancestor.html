@@ -1,0 +1,30 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNode.ancestor
+---
+    <header>
+        <h1>ancestor</h1>
+        <p id="description">returns ancestor elements.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+a_ancestor = Q('a:first').ancestor()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def ancestor(self):
+    if self.has_parent():
+        ret = pyNodeList()
+        par = self._parent
+        ret.append(par)
+        while par.has_parent():
+            par = par._parent
+            ret.append(par)
+        if len(ret) == 1: return ret[0]
+        else: return ret
+    return None
+        </code></pre>
+    </article>

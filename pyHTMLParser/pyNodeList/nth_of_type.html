@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.nth_of_type
+---
+    <header>
+        <h1>:nth-of-type(n)</h1>
+        <p id="description">returns elements that are the specified index of the type.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+second = Q('article:nth-of-type(2)')
+fifth = Q('div:nth-of-type(5)')
+Q_close()
+        </code></pre>
+    </article>

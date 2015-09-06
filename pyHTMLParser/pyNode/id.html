@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNode.id
 ---
     <header>
         <h1>id</h1>
-        <p id="description">returns id name</p>
+        <p id="description">returns id name.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div_main = parser.tag('div').first().id()
-parser.close()
+Q_open("http://example.com")
+div_id = Q('div:first').id()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

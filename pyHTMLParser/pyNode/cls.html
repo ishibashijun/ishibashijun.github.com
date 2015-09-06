@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNode.cls
 ---
     <header>
         <h1>cls</h1>
-        <p id="description">returns class name or space separated class names</p>
+        <p id="description">returns a class name or space separated class names.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-link_class_names = parser.tag('a').first().cls()
-parser.close()
+Q_open("http://example.com")
+class_names = Q('a:first').cls()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

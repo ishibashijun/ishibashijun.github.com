@@ -25,16 +25,24 @@
                 <a href="https://pypi.python.org/pypi/pyHTMLParser/">Pypi</a>
             </li>
         </ul>
-        <h2>Parser</h2>
-        <h4><span>extends HTMLParser</span></h4>
+        <h2>Links</h2>
         <ul>
+            <li><a href="{{ BASE_PATH }}/index.html">Top</a></li>
+            <li><a href="{{ BASE_PATH }}/docs.html">Docs</a></li>
+        </ul><hr>
+        <h2 id="h1"><span>API</span></h2><hr>
+        <h2 id="sidebarParser">Parser</h2>
+        <h4><span>extends HTMLParser</span></h4>
+        <ul id="sidebarParser_list">
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/getitem.html">__getitem__</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/set_decoding.html">set_decoding</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/open.html">open</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/construct.html">construct</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/close.html">close</a></li>
-            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/reset.html">reset</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/clear.html">clear</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/set_html.html">set_html</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/raw_html.html">raw_html</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/tag.html">tag</a></li>
-            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/body.html">body</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/id.html">id</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/cls.html">cls</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/header.html">header</a></li>
@@ -43,10 +51,57 @@
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/handle_startendtag.html">handle_startendtag</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/handle_data.html">handle_data</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/handle_comment.html">handle_comment</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/first.html">first</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/last.html">last</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/eq.html">eq</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/even.html">even</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/odd.html">odd</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/gt.html">gt</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/lt.html">lt</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/contains.html">contains</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/not.html">not_</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_button.html">select_button</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_checkbox.html">select_checkbox</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_checked.html">select_checked</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_disabled.html">select_disabled</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_empty.html">select_empty</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_file.html">select_file</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_enabled.html">select_enabled</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_first_child.html">select_first_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_nth_child.html">select_nth_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_nth_last_child.html">select_nth_last_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_last_child.html">select_last_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_first_of_type.html">select_first_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_last_of_type.html">select_last_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_nth_last_of_type.html">select_nth_last_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_nth_of_type.html">select_nth_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select.html">select</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_has.html">select_has</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_image.html">select_image</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_input.html">select_input</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_lang.html">select_lang</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_attr.html">select_attr</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_attr_contains_prefix.html">select_attr_contains_prefix</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_attr_contains.html">select_attr_contains</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_attr_contains_word.html">select_attr_contains_word</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_attr_ends_with.html">select_attr_ends_with</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_attr_not_equal.html">select_attr_not_equal</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_attr_starts_with.html">select_attr_starts_with</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_only_child.html">select_only_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_only_of_type.html">select_only_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_parent.html">select_parent</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_password.html">select_password</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_radio.html">select_radio</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_reset.html">select_reset</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_root.html">select_root</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_selected.html">select_selected</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_submit.html">select_submit</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/parser/select_text.html">select_text</a></li>
         </ul>
-        <h2>pyNodeList</h2>
+        <h2 id="sidebarPyNodeList">pyNodeList</h2>
         <h4><span>extends list</span></h4>
-        <ul>
+        <ul id="sidebarPyNodeList_list">
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/getitem.html">__getitem__</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/size.html">size</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/first.html">first</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/last.html">last</a></li>
@@ -58,20 +113,61 @@
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/tag.html">tag</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/id.html">id</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/cls.html">cls</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/header.html">header</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/has_cls.html">has_cls</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/has_child.html">has_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/children.html">children</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/child.html">child</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/contains.html">contains</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/siblings.html">siblings</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/descendant.html">descendant</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/descendant_tab.html">descendant_tab</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/descendant_cls.html">descendant_cls</a></li>
-            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/not_tag.html">not_tag</a></li>
-            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/not_cls.html">not_cls</a></li>
-            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/not_first.html">not_first</a></li>
-            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/not_last.html">not_last</a></li>
-            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/not_eq.html">not_eq</a></li>
-            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/not_contains.html">not_contains</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/not.html">not_</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_button.html">select_button</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_checkbox.html">select_checkbox</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_checked.html">select_checked</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_disabled.html">select_disabled</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_empty.html">select_empty</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_enabled.html">select_enabled</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_file.html">select_file</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_first_child.html">select_first_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_nth_child.html">select_nth_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_nth_last_child.html">select_nth_last_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_last_child.html">select_last_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_first_of_type.html">select_first_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_last_of_type.html">select_last_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_nth_last_of_type.html">select_nth_last_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_nth_of_type.html">select_nth_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select.html">select</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_has.html">select_has</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_image.html">select_image</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_input.html">select_input</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_lang.html">select_lang</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_attr.html">select_attr</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_next.html">select_next</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_next_sibling.html">select_next_sibling</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_prev.html">select_prev</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_prev_sibling.html">select_prev_sibling</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_attr_contains_prefix.html">select_attr_contains_prefix</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_attr_contains.html">select_attr_contains</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_attr_contains_word.html">select_attr_contains_word</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_attr_ends_with.html">select_attr_ends_with</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_attr_not_equal.html">select_attr_not_equal</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_attr_starts_with.html">select_attr_starts_with</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_only_child.html">select_only_child</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_only_of_type.html">select_only_of_type</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_parent.html">select_parent</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_password.html">select_password</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_radio.html">select_radio</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_reset.html">select_reset</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_root.html">select_root</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_selected.html">select_selected</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_submit.html">select_submit</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNodeList/select_text.html">select_text</a></li>
         </ul>
-        <h2>pyNode</h2>
-        <ul>
+        <h2 id="sidebarPyNode">pyNode</h2>
+        <ul id="sidebarPyNode_list">
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/str.html">__str__</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/eq.html">__eq__</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/ne.html">__ne__</a></li>
@@ -93,7 +189,7 @@
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/has_parent.html">has_parent</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/set_parent.html">set_parent</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/parent.html">parent</a></li>
-            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/parents.html">parents</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/ancestor.html">ancestor</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/has_child.html">has_child</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/add_child.html">add_child</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/children.html">children</a></li>
@@ -101,13 +197,76 @@
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/next_all.html">next_all</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/prev_all.html">prev_all</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/siblings.html">siblings</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/decendant.html">decendant</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/descendant_tab.html">descendant_tab</a></li>
             <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/descendant_cls.html">descendant_cls</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/next_element.html">next_element</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/prev_element.html">prev_element</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/attr_contains_prefix.html">attr_contains_prefix</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/attr_contains.html">attr_contains</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/attr_contains_word.html">attr_contains_word</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/attr_ends_with.html">attr_ends_with</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/attr_starts_with.html">attr_starts_with</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/select_next.html">select_next</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/select_next_sibling.html">select_next_sibling</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/select_prev.html">select_prev</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/pyNode/select_prev_sibling.html">select_prev_sibling</a></li>
         </ul>
-        <h2>Links</h2>
-        <ul>
-            <li><a href="{{ BASE_PATH }}/index.html">Top</a></li>
-            <li><a href="{{ BASE_PATH }}/docs.html">Docs</a></li>
+        <h2 id="sidebarQuery">Query</h2>
+        <ul id="sidebarQuery_list">
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/Query/Q_open.html">Q_open</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/Query/Q_close.html">Q_close</a></li>
+            <li><a href="{{ BASE_PATH }}/pyHTMLParser/Query/Q_html.html">Q_html</a></li>
+            <li>
+                <h3>Selectors</h3>
+                <ul id="sidebarQSelectors">
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/tag.html">tag</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/id.html">#id</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/cls.html">.class</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/descendant.html">ancestor descendant</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/children.html">parent &gt; child</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/next.html">element + element</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/next_sibling.html">element ~ element</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/prev.html">element - element</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/prev_sibling.html">element &lt; element</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/eq.html">:eq(i)</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/gt.html">:gt(i)</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/lt.html">:lt(i)</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/nth_child.html">:nth-child(n)</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/nth_last_child.html">:nth-last-child(n)</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/nth_last_of_type.html">:nth-last-of-type(n)</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/nth_of_type.html">:nth-of-type(n)</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/lang.html">:lang(value)</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/contains.html">:contains(value)</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/not.html">:not(element(s))</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/has.html">:has(element(s))</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/first.html">:first</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/last.html">:last</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/even.html">:even</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/odd.html">:odd</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/button.html">:button</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/checkbox.html">:checkbox</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/checked.html">:checked</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/disabled.html">:disabled</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/enabled.html">:enabled</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/file.html">:file</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/first_child.html">:first-child</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/last_child.html">:last-child</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/first_of_type.html">:first-of-type</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/last_of_type.html">:last-of-type</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/image.html">:image</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/input.html">:input</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/header.html">:header</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/has_attribute.html">[attribute]</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/attribute.html">[attribute=value]</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/attribute_contains_prefix.html">[attribute|=value]</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/attribute_contains.html">[attribute*=value]</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/attribute_contains_word.html">[attribute~=value]</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/attribute_ends_with.html">[attribute$=value]</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/attribute_not.html">[attribute!=value]</a></li>
+                    <li><a href="{{ BASE_PATH }}/pyHTMLParser/query/attribute_starts_with.html">[attribute^=value]</a></li>
+                </ul>
+            </li>
         </ul>
     </div>
 </aside>
@@ -121,7 +280,8 @@
         </p>
     </footer>
 </div>
-<script src="js/script.js"></script>
+<script src="{{ BASE_PATH }}/assets/themes/custom/js/jquery-2.1.3.min.js"></script>
+<script src="{{ BASE_PATH }}/pyHTMLParser/js/script.js"></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

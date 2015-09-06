@@ -1,22 +1,21 @@
 ---
 layout: pyHTMLParser
-title: pyHTMLParser Docs | pyNode.ne
+title: pyHTMLParser Docs | pyNode.__ne__
 ---
     <header>
         <h1>__ne__</h1>
-        <p id="description">returns true if it does not equal</p>
+        <p id="description">returns True if it does not equal.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div_first = parser.tag('div').first()
-id_main = parser.id('main')
-print(str(div_first != id_main))
-parser.close()
-
->> True
+Q_open("http://example.com")
+second = Q('#links &gt; li:nth-child(2)')
+li = Q('#links &gt; li')
+for l in li:
+    if l != second_li:
+        print('not second')
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

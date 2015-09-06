@@ -4,7 +4,7 @@ title: pyHTMLParser Docs | Parser.handle_startendtag
 ---
     <header>
         <h1>handle_startendtag</h1>
-        <p id="description">[internal] handles xhtml like self closing tags when constructing DOM tree</p>
+        <p id="description">[internal] handles xhtml like self closing tags when constructing DOM tree.</p>
     </header>
     <article>
         <h2 id="arguments">Arguments</h2>
@@ -23,11 +23,11 @@ title: pyHTMLParser Docs | Parser.handle_startendtag
         <h2 id="source">Source</h2>
         <pre><code>
 def handle_startendtag(self, tag, attrs):
-    if self._is_started:
-        node = pyNode(tag.lower())
+    node = pyNode(tag.lower())
+    if len(self._dom) != 0:
         node.set_parent(self._dom[-1])
         self._nodes.append(node)
-        for attr in attrs:
-            node.set_attr(attr[0], attr[1])
+    for attr in attrs:
+        node.set_attr(attr[0], attr[1])
         </code></pre>
     </article>

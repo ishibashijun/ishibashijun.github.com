@@ -1,0 +1,27 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Parser.select_text
+---
+    <header>
+        <h1>select_text</h1>
+        <p id="description">returns elements that are type text.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+texts = Q('input').select_text()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_text(self):
+    ret = pyNodeList()
+    for node in self:
+        t = node.attr('type')
+        if t is not None and t.lower() == 'text':
+            ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

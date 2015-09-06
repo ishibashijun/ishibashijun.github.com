@@ -1,21 +1,18 @@
 ---
 layout: pyHTMLParser
-title: pyHTMLParser Docs | pyNode.str
+title: pyHTMLParser Docs | pyNode.__str__
 ---
     <header>
         <h1>__str__</h1>
-        <p id="description">returns tag name</p>
+        <p id="description">returns the element name.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div_main = parser.tag('div').id('main')
-print(str(div_main))
-parser.close()
-
->> div
+Q_open("http://example.com")
+id_main = Q('#main')
+print(str(id_main))
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

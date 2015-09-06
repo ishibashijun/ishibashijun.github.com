@@ -1,0 +1,39 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_attr_contains_prefix
+---
+    <header>
+        <h1>select_attr_contains_prefix</h1>
+        <p id="description">returns elements that have the specified attribute and the value that starts with the given prefix.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+english = Q('div').select_attr_contains_prefix('lang', 'en')
+Q_close()
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: attr,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>attribute</li>
+                </ul>
+            </li>
+            <li>Name: value,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>value</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_attr_contains_prefix(self, attr, value):
+    ret = pyNodeList()
+    for node in self:
+        if node.attr_contains_prefix(attr, value):
+            ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

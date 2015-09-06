@@ -1,0 +1,27 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_checkbox
+---
+    <header>
+        <h1>select_checkbox</h1>
+        <p id="description">returns input elements that are type checkbox.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+checkboxes = Q('input').select_checkbox()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_checkbox(self):
+    ret = pyNodeList()
+    for node in self:
+        t = node.attr('type')
+        if t is not None and t.lower() == 'checkbox':
+            ret.append(node)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

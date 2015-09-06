@@ -4,16 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.odd
 ---
     <header>
         <h1>odd</h1>
-        <p id="description">returns odd elements</p>
+        <p id="description">returns odd elements.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').id('list').child('li')
-odd_elements_of_list = li.odd()
-parser.close()
+Q_open("http://example.com")
+odd_elems = Q('#list > li').odd()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>
@@ -23,6 +21,7 @@ def odd(self):
     for node in self:
         if is_odd: ret.append(node)
         is_odd = not is_odd
-    return ret
+    if len(ret) == 1: return ret[0]
+    else: return ret
         </code></pre>
     </article>

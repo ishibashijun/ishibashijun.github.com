@@ -1,0 +1,42 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | pyNodeList.select_prev_sibling
+---
+    <header>
+        <h1>select_prev_sibling</h1>
+        <p id="description">returns elements that are sibling and less than or equals to previous.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+divs_sibling = Q('div').select_prev_sibling()
+Q_close()
+        </code></pre>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_prev_sibling(self):
+    ret = pyNodeList()
+    for node in self:
+        n = node.prev_all()
+        if isinstance(n, pyNode):
+            duplicated = False
+            if len(ret) != 0:
+                for r in ret:
+                    if r == n:
+                        duplicated = True
+                        break
+            if not duplicated: ret.append(n)
+        else:
+            for elem in n:
+                duplicated = False
+                if len(ret) != 0:
+                    for r in ret:
+                        if r == elem:
+                            duplicated = True
+                            break
+                if not duplicated: ret.append(elem)
+    if len(ret) == 1: return ret[0]
+    else: return ret
+        </code></pre>
+    </article>

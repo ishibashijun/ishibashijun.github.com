@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNodeList.size
 ---
     <header>
         <h1>size</h1>
-        <p id="description">returns number of elements</p>
+        <p id="description">returns number of elements.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-li = parser.tag('ul').first().child('li').size()
-parser.close()
+Q_open("http://example.com")
+li_size = Q('ul:first &lt; li').size()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

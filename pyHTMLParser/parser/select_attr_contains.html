@@ -1,0 +1,28 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Parser.select_attr_contains
+---
+    <header>
+        <h1>select_attr_contains</h1>
+        <p id="description">[internal] returns elements that have the specified attribute and the value that contains given value.</p>
+    </header>
+    <article>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: attr,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>attribute</li>
+                </ul>
+            </li>
+            <li>Name: value,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>value</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def select_attr_contains(self, attr, value):
+    return self._nodes.select_attr_contains(attr, value)
+        </code></pre>
+    </article>

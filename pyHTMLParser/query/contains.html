@@ -1,0 +1,17 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.contains
+---
+    <header>
+        <h1>:contains(value)</h1>
+        <p id="description">returns elements that are containing the specified text.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+greeting = Q('p:contains("Hello World")')
+python = Q('p:contains("Python")')
+Q_close()
+        </code></pre>
+    </article>

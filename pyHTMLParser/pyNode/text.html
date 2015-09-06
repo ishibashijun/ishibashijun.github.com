@@ -4,15 +4,14 @@ title: pyHTMLParser Docs | pyNode.text
 ---
     <header>
         <h1>text</h1>
-        <p id="description">returns element's text content</p>
+        <p id="description">returns the text content.</p>
     </header>
     <article>
         <h2>Example</h2>
         <pre><code>
-parser = Parser()
-parser.open("http://example.com")
-div_text = parser.tag('div').first().text()
-parser.close()
+Q_open("http://example.com")
+div_text = Q('div:first').text()
+Q_close()
         </code></pre>
         <h2 id="source">Source</h2>
         <pre><code>

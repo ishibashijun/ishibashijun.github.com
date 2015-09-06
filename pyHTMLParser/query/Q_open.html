@@ -1,0 +1,51 @@
+---
+layout: pyHTMLParser
+title: pyHTMLParser Docs | Query.Q_open
+---
+    <header>
+        <h1>Q_open</h1>
+        <p id="description">constructs DOM tree.</p>
+    </header>
+    <article>
+        <h2>Example</h2>
+        <pre><code>
+Q_open("http://example.com")
+## OR
+parser = Parser()
+parser.set_encoding('utf-8')
+Q_open("http://example.com", parser)
+        </code></pre>
+        <h2 id="arguments">Arguments</h2>
+        <ul>
+            <li>Name: url,&nbsp;<em>Type: str</em>
+                <ul>
+                    <li>url</li>
+                </ul>
+            </li>
+            <li>Name: parser,&nbsp;<em>Type: Parser</em>
+                <ul>
+                    <li>parser</li>
+                </ul>
+            </li>
+        </ul>
+        <h2 id="source">Source</h2>
+        <pre><code>
+def Q_open(url, parser = None):
+    global _parser
+    if parser is not None:
+        if _parser is not None:
+            _parser.close()
+            _parser.clear()
+        _parser = parser
+        _parser.open(url)
+    else:
+        if _parser is None:
+            _parser = Parser()
+            _parser.open(url)
+        else:
+            _parser.close()
+            _parser.clear()
+            _parser.open(url)
+    _parser.construct()
+        </code></pre>
+    </article>
