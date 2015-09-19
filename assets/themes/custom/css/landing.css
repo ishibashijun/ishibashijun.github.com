@@ -106,6 +106,7 @@ pre code {
 }
 
 .navbar .brand {
+    padding: 10px;
     font-family: "sprout";
     font-weight: bold;
     font-size: 40px;
