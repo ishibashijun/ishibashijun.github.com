@@ -5,6 +5,10 @@
     height: 60px;
 }
 
+.brand {
+    margin-top: 10px;
+}
+
 .nav {
     visibility: hidden;
     width: 0px;
