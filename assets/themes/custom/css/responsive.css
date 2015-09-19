@@ -1,0 +1,116 @@
+@media only screen and (min-width: 240px) {
+
+.navbar {
+    width: 100%;
+    height: 60px;
+}
+
+.nav {
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+}
+
+.nav li {
+    visibility: hidden;
+    width: 0px;
+    height: 0px;
+}
+
+#hiddenMenuResponsive {
+    display: none;
+    width: 100%;
+    background-color: #473e3f;
+    padding: 20px 0;
+}
+
+#hiddenMenuResponsive li {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#hiddenMenuResponsive li a {
+    color: #fff;
+    line-height: 15px;
+    font-family: "sprout";
+    font-size: 28px;
+    text-decoration: none;
+}
+
+#hiddenMenuResponsive li a:hover {
+    color: rgb(150, 79, 76);
+}
+
+.menuResponsive {
+    float: right;
+    visibility: visible;
+    width: auto;
+    height: 44px;
+    padding: 16px 0 0;
+    line-height: 15px;
+    font-family: "sprout";
+    font-size: 28px;
+    color: #ffffff;
+}
+
+.menuResponsive li {
+    list-style-type: none;
+}
+
+#menuResponsiveImage {
+    position: relative;
+    top: -5px;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+}
+
+}
+/*** END of min-width: 240px ***/
+@media only screen and (min-width: 481px) {
+
+}
+/*** END of min-width: 481px ***/
+@media only screen and (min-width: 768px) {
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.nav {
+    visibility: visible;
+    width: auto;
+    height: 100%;
+}
+
+.nav li {
+    visibility: visible;
+    width: auto;
+    height: auto;
+}
+
+.menuResponsive {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+/*** END of min-width: 768px ***/
+}
+
+@media only screen and (min-width: 980px) {
+
+/*** END of min-width: 980px ***/
+}
+
+@media only screen and (min-width: 1030px) {
+
+/*** END of min-width: 1030px ***/
+}
+
+@media only screen and (min-width: 1240px) {
+
+/*** END of min-width: 1240px ***/
+}
