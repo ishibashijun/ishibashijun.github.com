@@ -106,7 +106,8 @@ pre code {
 }
 
 .navbar .brand {
-    padding: 10px;
+    padding: 0;
+    margin: 10px 0 0;
     font-family: "sprout";
     font-weight: bold;
     font-size: 40px;
@@ -139,6 +140,10 @@ pre code {
     color: #cccccc;
     border: 0 solid rgba(0, 0, 0, 1);
     border-width: 0 0 3px 0;
+}
+
+#menuResponsiveImage {
+    padding-top: 5px;
 }
 
 #main {

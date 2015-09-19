@@ -95,6 +95,7 @@
     visibility: hidden;
     width: 0;
     height: 0;
+    padding: 0;
 }
 
 /*** END of min-width: 768px ***/
