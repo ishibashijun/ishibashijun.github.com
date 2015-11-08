@@ -39,8 +39,8 @@ for (y = 0; y < height; y++) {
     <li><p><span class="colorBox" style="background-color: #ffff00;"></span>Entrance</p></li>
     <li><p><span class="colorBox" style="background-color: hsl(100, 50%, 50%);"></span>Descending Stair</p></li>
     <li><p><span class="colorBox" style="background-color: hsl(300, 50%, 50%);"></span>Ascending Stair</p></li>
-    <li><input type="checkbox" id="drawRoomGroup" onClick="drawRoomGroup();"><label for="drawRoomGroup">Draw Room Group</label></li>
-    <li><input type="checkbox" id="drawDeadEnd" onClick="drawDeadEnd();"><label for="drawDeadEnd">Draw Dead End</label></li>
+    <li><input type="checkbox" id="drawRoomGroup" onClick="visualize();"><label for="drawRoomGroup">Draw Room Group</label></li>
+    <li><input type="checkbox" id="drawDeadEnd" onClick="visualize();"><label for="drawDeadEnd">Draw Dead End</label></li>
 </ul>
 <div id="ui" style="margin: 25px auto; clear: both;">
     <form>
@@ -186,65 +186,6 @@ var Colors = {
     ASCENDING_STAIR: "hsl(300, 50%, 50%)"
 };
 
-function drawDeadEnd() {
-    if (document.getElementById("drawDeadEnd").checked) {
-        var o = [];
-
-        mazen.corridors.forEach(function (value, key, object) {
-            var corridor = value;
-
-            if (corridor.deadEndLength() !== 0) {
-                corridor.deadEnds.forEach(function (v, k, obj) {
-                    o.push(v);
-
-                    return true;
-                });
-            }
-
-            return true;
-        });
-
-        ctx.fillStyle = "Red";
-
-        for (var i in o) {
-            ctx.fillRect(o[i].x * cellSize, o[i].y * cellSize, cellSize, cellSize);
-        }
-    } else {
-        visualize();
-    }
-}
-
-function drawRoomGroup() {
-    if (document.getElementById("drawRoomGroup").checked) {
-        var len = mazen.roomGroupLength();
-        var keys = mazen.getRoomGroupKeys();
-        var mul = Math.ceil(360 / len);
-
-        for (var i = 0; i < len; i++) {
-            var roomGroup = mazen.getRoomGroup(keys[i]);
-            var h = (roomGroup.id * mul) % 360;
-
-            ctx.fillStyle = "hsl(" + h + ", 100%, 20%)";
-
-            roomGroup.rooms.forEach(function (value, key, object) {
-                var room = value;
-                
-                room.cells.forEach(function (v, k, o) {
-                    if (mazen.getMap(v.x, v.y) != Terrain.DESCENDING_STAIR && mazen.getMap(v.x, v.y) != Terrain.ASCENDING_STAIR) {
-                        ctx.fillRect(v.x * cellSize, v.y * cellSize, cellSize, cellSize);
-                    }
-
-                    return true;
-                });
-
-                return true;
-            });
-        }
-    } else {
-        visualize();
-    }
-}
-
 function checkExtraCombinedRooms() { params.createExtraCombinedRooms = document.getElementById("createExtraCombinedRooms").checked; }
 function checkExtraEntrances() { params.createExtraEntrances = document.getElementById("createExtraEntrances").checked; }
 function checkBranchOut() { params.branchOut = document.getElementById("branchOut").checked; }
@@ -286,6 +227,57 @@ function visualize() {
             ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
         }
     }
+
+    if (document.getElementById("drawRoomGroup").checked) {
+        var len = mazen.roomGroupLength();
+        var keys = mazen.getRoomGroupKeys();
+        var mul = Math.ceil(360 / len);
+
+        for (var i = 0; i < len; i++) {
+            var roomGroup = mazen.getRoomGroup(keys[i]);
+            var h = (roomGroup.id * mul) % 360;
+
+            ctx.fillStyle = "hsl(" + h + ", 100%, 20%)";
+
+            roomGroup.rooms.forEach(function (value, key, object) {
+                var room = value;
+                
+                room.cells.forEach(function (v, k, o) {
+                    if (mazen.getMap(v.x, v.y) != Terrain.DESCENDING_STAIR && mazen.getMap(v.x, v.y) != Terrain.ASCENDING_STAIR) {
+                        ctx.fillRect(v.x * cellSize, v.y * cellSize, cellSize, cellSize);
+                    }
+
+                    return true;
+                });
+
+                return true;
+            });
+        }
+    }
+
+    if (document.getElementById("drawDeadEnd").checked) {
+        var o = [];
+
+        mazen.corridors.forEach(function (value, key, object) {
+            var corridor = value;
+
+            if (corridor.deadEndLength() !== 0) {
+                corridor.deadEnds.forEach(function (v, k, obj) {
+                    o.push(v);
+
+                    return true;
+                });
+            }
+
+            return true;
+        });
+
+        ctx.fillStyle = "Red";
+
+        for (var i in o) {
+            ctx.fillRect(o[i].x * cellSize, o[i].y * cellSize, cellSize, cellSize);
+        }
+    }
 }
 
 function drawBlankCanvas() {
@@ -317,9 +309,6 @@ function draw() {
         alert("Error: Could not create dungeon. Please reconsider parameters.");
     } else {
         visualize();
-
-        if (document.getElementById("drawRoomGroup").checked) drawRoomGroup();
-        if (document.getElementById("drawDeadEnd").checked) drawDeadEnd();
     }
 }
 
