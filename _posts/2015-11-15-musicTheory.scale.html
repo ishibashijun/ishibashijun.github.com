@@ -1,0 +1,275 @@
+---
+layout: post
+title: Music Theory for Programmer Part 1
+category: music theory
+tagline:
+tags: [music theory, music, javascript]
+descripton: Studied a little music theory. This is what I comprehended.
+keywords: [music theory, scale, music, javascript]
+---
+<h2>MusicTheory.Scale</h2>
+<pre><code>"use strict";
+var MusicTheory = {};
+
+MusicTheory.Scale = (function () {
+    var $ = {};
+
+    // To use for array index I used semitone as 1 instead of 0.5 tone.
+    var semitone = 1;
+
+    $.major = 0;
+    $.naturalMinor = 1;
+    $.harmonicMinor = 2;
+    $.merodicMinor = 3;
+    $.note = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+    // same pattern as black keys on keyboard.
+    $.majorScale = [semitone * 2, semitone * 2, semitone, semitone * 2, semitone * 2, semitone * 2, semitone];
+
+    $.minorScale = {
+        // move the major scale 2 step to the right.
+        natural: [semitone * 2, semitone, semitone * 2, semitone * 2, semitone, semitone * 2, semitone * 2],
+    };
+    $.minorScale.harmonic = [].concat($.minorScale.natural);
+    $.minorScale.harmonic[5] += semitone;
+    $.minorScale.merodic = [].concat($.minorScale.natural);
+    $.minorScale.merodic[4] += semitone;
+
+    $.getKeys = function (key, scaleType) {
+        var ret = [];
+        var index;
+
+        function getRestOfTheKeys(arr, i, type) {
+            var scaleArr;
+
+            switch (type) {
+            case $.major:
+                scaleArr = $.majorScale;
+                break;
+            case $.naturalMinor:
+                scaleArr = $.minorScale.natural;
+                break;
+            case $.harmonicMinor:
+                scaleArr = $.minorScale.harmonic;
+                break;
+            case $.merodicMinor:
+                scaleArr = $.minorScale.merodic;
+                break;
+            }
+
+            var j;
+
+            for (j = 0; j < 6; j++) {
+                i = (i + scaleArr[j]) % 12;
+
+                arr.push($.note[i]);
+            }
+        }
+
+        switch (key) {
+        case "C":
+            index = 0;
+            break;
+        case "C#":
+            index = 1;
+            break;
+        case "D":
+            index = 2;
+            break;
+        case "D#":
+            index = 3;
+            break;
+        case "E":
+            index = 4;
+            break;
+        case "F":
+            index = 5;
+            break;
+        case "F#":
+            index = 6;
+            break;
+        case "G":
+            index = 7;
+            break;
+        case "G#":
+            index = 8;
+            break;
+        case "A":
+            index = 9;
+            break;
+        case "A#":
+            index = 10;
+            break;
+        case "B":
+            index = 11;
+            break;
+        }
+
+        ret.push($.note[index]);
+
+        getRestOfTheKeys(ret, index, scaleType);
+
+        return ret;
+    };
+
+    return $;
+})();
+</code></pre>
+<h4>DEMO</h4>
+<form>
+    <select name="key" id="key">
+        <option value="C" selected>C</option>
+        <option value="C#">C#</option>
+        <option value="D">D</option>
+        <option value="D#">D#</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="F#">F#</option>
+        <option value="G">G</option>
+        <option value="G#">G#</option>
+        <option value="A">A</option>
+        <option value="A#">A#</option>
+        <option value="B">B</option>
+    </select>
+    <select name="scale" id="scale">
+        <option value="Major" selected>Major</option>
+        <option value="Natural Minor">Natural Minor</option>
+        <option value="Harmonic Minor">Harmonic Minor</option>
+        <option value="Merodic Minor">Merodic Minor</option>
+    </select>
+    <button type="button" id="btn" onClick="getKeys();" style="width: 100px; height: 30px; margin-bottom: 10px;">Get Keys</button>
+</form><br>
+<p>Keys <span id="keys"></span></p>
+<script>
+var MusicTheory = {};
+
+MusicTheory.Scale = (function () {
+    var $ = {};
+
+    // To use for array index I use semitone as 1 instead of 0.5 tone.
+    var semitone = 1;
+
+    $.major = 0;
+    $.naturalMinor = 1;
+    $.harmonicMinor = 2;
+    $.merodicMinor = 3;
+    $.note = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+    // same pattern as black keys on keyboard.
+    $.majorScale = [semitone * 2, semitone * 2, semitone, semitone * 2, semitone * 2, semitone * 2, semitone];
+
+    $.minorScale = {
+        // move the major scale 2 step to the right.
+        natural: [semitone * 2, semitone, semitone * 2, semitone * 2, semitone, semitone * 2, semitone * 2],
+    };
+    $.minorScale.harmonic = [].concat($.minorScale.natural);
+    $.minorScale.harmonic[5] += semitone;
+    $.minorScale.merodic = [].concat($.minorScale.natural);
+    $.minorScale.merodic[4] += semitone;
+
+    $.getKeys = function (key, scaleType) {
+        var ret = [];
+        var index;
+
+        function getRestOfTheKeys(arr, i, type) {
+            var scaleArr;
+
+            switch (type) {
+            case $.major:
+                scaleArr = $.majorScale;
+                break;
+            case $.naturalMinor:
+                scaleArr = $.minorScale.natural;
+                break;
+            case $.harmonicMinor:
+                scaleArr = $.minorScale.harmonic;
+                break;
+            case $.merodicMinor:
+                scaleArr = $.minorScale.merodic;
+                break;
+            }
+
+            var j;
+
+            for (j = 0; j < 6; j++) {
+                i = (i + scaleArr[j]) % 12;
+
+                arr.push($.note[i]);
+            }
+        }
+
+        switch (key) {
+        case "C":
+            index = 0;
+            break;
+        case "C#":
+            index = 1;
+            break;
+        case "D":
+            index = 2;
+            break;
+        case "D#":
+            index = 3;
+            break;
+        case "E":
+            index = 4;
+            break;
+        case "F":
+            index = 5;
+            break;
+        case "F#":
+            index = 6;
+            break;
+        case "G":
+            index = 7;
+            break;
+        case "G#":
+            index = 8;
+            break;
+        case "A":
+            index = 9;
+            break;
+        case "A#":
+            index = 10;
+            break;
+        case "B":
+            index = 11;
+            break;
+        }
+
+        ret.push($.note[index]);
+
+        getRestOfTheKeys(ret, index, scaleType);
+
+        return ret;
+    };
+
+    return $;
+})();
+
+function getKeys() {
+    var key = document.getElementById("key");
+    var scale = document.getElementById("scale");
+    var k = key.options[key.selectedIndex].text;
+    var s = scale.options[scale.selectedIndex].text;
+    var scaleType;
+
+    switch (s) {
+    case "Major":
+        scaleType = MusicTheory.Scale.major;
+        break;
+    case "Natural Minor":
+        scaleType = MusicTheory.Scale.naturalMinor;
+        break;
+    case "Harmonic Minor":
+        scaleType = MusicTheory.Scale.harmonicMinor;
+        break;
+    case "Merodic Minor":
+        scaleType = MusicTheory.Scale.merodicMinor;
+        break;
+    }
+
+    document.getElementById("keys").innerHTML = "";
+    document.getElementById("keys").innerHTML = MusicTheory.Scale.getKeys(k, scaleType);
+}
+</script>
