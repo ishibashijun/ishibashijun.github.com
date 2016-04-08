@@ -1,0 +1,204 @@
+---
+layout: post
+title: Music Theory for Programmer Part 2
+category: music theory
+tagline:
+tags: [music theory, music, javascript]
+descripton: Studied a little of music theory. This is what I comprehended.
+keywords: [music theory, scale, music, javascript]
+---
+<p>Studied a little of music theory. This is what I comprehended.</p>
+<h2>MusicTheory.Mode</h2>
+<pre><code>"use strict";
+var MusicTheory = {};
+
+MusicTheory.Mode = (function () {
+    var $ = {};
+
+    // To use for array index I use semitone as 1 instead of 0.5 tone.
+    var TONE = 2;
+    var SEMITONE = 1;
+
+    var majorScale = [TONE, TONE, SEMITONE, TONE, TONE, TONE, SEMITONE];
+
+    $.note = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+    function arrayCopy(from, to) {
+        var i;
+        var len = to.length;
+
+        if ((typeof to) === "undefined") to = [];
+
+        to.length = len;
+
+        for (i = 0; i < len; i++) to[i] = from[i];
+
+        return to;
+    }
+
+    function arrayElementShiftLeft(arr) {
+        arr.push(arr.shift());
+
+        return arr;
+    }
+
+    function _getKeys(index, mode) {
+        var ret = [];
+        var i;
+        var len = 7;
+        var offset = index;
+
+        for (i = 0; i < len; i++) {
+            ret.push($.note[offset]);
+
+            offset += mode[i];
+
+            if (11 < offset) offset -= 12;
+        }
+
+        return ret;
+    }
+
+    $.Ionian = arrayCopy(majorScale);
+    $.Dorian = arrayElementShiftLeft(arrayCopy($.Ionian));
+    $.Phrygian = arrayElementShiftLeft(arrayCopy($.Dorian));
+    $.Lydian = arrayElementShiftLeft(arrayCopy($.Phrygian));
+    $.Mixolydian = arrayElementShiftLeft(arrayCopy($.Lydian));
+    $.Aeolian = arrayElementShiftLeft(arrayCopy($.Mixolydian));
+    $.Locrian = arrayElementShiftLeft(arrayCopy($.Aeolian));
+
+    $.getKeys = function (start, mode) {
+        return _getKeys(start, mode);
+    }
+
+    return $;
+})();
+</code></pre>
+<h4>DEMO</h4>
+<form>
+    <select name="key" id="key">
+        <option value="C" selected>C</option>
+        <option value="C#">C#</option>
+        <option value="D">D</option>
+        <option value="D#">D#</option>
+        <option value="E">E</option>
+        <option value="F">F</option>
+        <option value="F#">F#</option>
+        <option value="G">G</option>
+        <option value="G#">G#</option>
+        <option value="A">A</option>
+        <option value="A#">A#</option>
+        <option value="B">B</option>
+    </select>
+    <select name="mode" id="mode">
+        <option value="Ionian" selected>Ionian</option>
+        <option value="Dorian">Dorian</option>
+        <option value="Phrygian">Phrygian</option>
+        <option value="Lydian">Lydian</option>
+        <option value="Mixolydian">Mixolydian</option>
+        <option value="Aeolian">Aeolian</option>
+        <option value="Locrian">Locrian</option>
+    </select>
+    <button type="button" id="btn" onClick="getKeys();" style="width: 100px; height: 30px; margin-bottom: 10px;">Get Keys</button>
+</form><br>
+<p>Keys <span id="keys"></span></p>
+<script>
+var MusicTheory = {};
+
+MusicTheory.Mode = (function () {
+    var $ = {};
+
+    // To use for array index I use semitone as 1 instead of 0.5 tone.
+    var TONE = 2;
+    var SEMITONE = 1;
+
+    var majorScale = [TONE, TONE, SEMITONE, TONE, TONE, TONE, SEMITONE];
+
+    $.note = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+    function arrayCopy(from, to) {
+        var i;
+        var len = from.length;
+
+        if ((typeof to) === "undefined") to = [];
+
+        to.length = len;
+
+        for (i = 0; i < len; i++) to[i] = from[i];
+
+        return to;
+    }
+
+    function arrayElementShiftLeft(arr) {
+        arr.push(arr.shift());
+
+        return arr;
+    }
+
+    function _getKeys(index, mode) {
+        var ret = [];
+        var i;
+        var len = 7;
+        var offset = index;
+
+        for (i = 0; i < len; i++) {
+            ret.push($.note[offset]);
+
+            offset += mode[i];
+
+            if (11 < offset) offset -= 12;
+        }
+
+        return ret;
+    }
+
+    $.Ionian = arrayCopy(majorScale);
+    $.Dorian = arrayElementShiftLeft(arrayCopy($.Ionian));
+    $.Phrygian = arrayElementShiftLeft(arrayCopy($.Dorian));
+    $.Lydian = arrayElementShiftLeft(arrayCopy($.Phrygian));
+    $.Mixolydian = arrayElementShiftLeft(arrayCopy($.Lydian));
+    $.Aeolian = arrayElementShiftLeft(arrayCopy($.Mixolydian));
+    $.Locrian = arrayElementShiftLeft(arrayCopy($.Aeolian));
+
+    $.getKeys = function (start, mode) {
+        return _getKeys(start, mode);
+    }
+
+    return $;
+})();
+
+function getKeys() {
+    var key = document.getElementById("key");
+    var mode = document.getElementById("mode");
+    var k = key.selectedIndex;
+    var m = mode.options[mode.selectedIndex].text;
+    var modeType;
+
+    switch (m) {
+    case "Ionian":
+        modeType = MusicTheory.Mode.Ionian;
+        break;
+    case "Dorian":
+        modeType = MusicTheory.Mode.Dorian;
+        break;
+    case "Phrygian":
+        modeType = MusicTheory.Mode.Phrygian;
+        break;
+    case "Lydian":
+        modeType = MusicTheory.Mode.Lydian;
+        break;
+    case "Mixolydian":
+        modeType = MusicTheory.Mode.Mixolydian;
+        break;
+    case "Aeolian":
+        modeType = MusicTheory.Mode.Aeolian;
+        break;
+    case "Locrian":
+        modeType = MusicTheory.Mode.Locrian;
+        break;
+    }
+
+    document.getElementById("keys").innerHTML = "";
+    document.getElementById("keys").innerHTML = MusicTheory.Mode.getKeys(k, modeType);
+}
+</script>
