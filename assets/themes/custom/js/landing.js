@@ -109,6 +109,8 @@ function colorToString(color) {
     return "rgba(" + color[0] + ", " + color[1] + ", " + color[2] + ", " + color[3] + ")";
 }
 
+var Cube = function () {}
+
 Cube.prototype.ballDraw = function (b) {
     ctx.save();
     ctx.beginPath();
