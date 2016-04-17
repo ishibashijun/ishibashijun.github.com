@@ -11,8 +11,6 @@ function onResize() {
     var w = window.innerWidth;
     var h = window.innerHeight;
 
-    alert("width: " + w + "px, height: " + h + "px");
-
     width = parseInt(w);
     height = parseInt(h);
     canvas.attr("width", width);
@@ -68,14 +66,7 @@ function initLogo() {
 }
 
 function resizeLogo() {
-    imgWidth = width;
-    imgHeight = height;
-
-    var half = parseInt(imgHeight) >> 1;
-
-    imgTop = (centerY - half) + "px";
-
-    $("#logo").css("top", imgTop);
+    initLogo();
 }
 
 var geometries = [];
