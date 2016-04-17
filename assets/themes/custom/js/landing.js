@@ -8,8 +8,8 @@ var imgWidth, imgHeight;
 var imgTop;
 
 function onResize() {
-    var w = window.innerWidth();
-    var h = window.innerHeight();
+    var w = window.innerWidth;
+    var h = window.innerHeight;
 
     alert("width: " + w + "px, height: " + h + "px");
 
@@ -28,8 +28,8 @@ function onOrientationChange() {
 }
 
 function onLoad() {
-    var w = window.innerWidth();
-    var h = window.innerHeight();
+    var w = window.innerWidth;
+    var h = window.innerHeight;
 
     canvas = $("#c");
     ctx = canvas.get(0).getContext("2d");
