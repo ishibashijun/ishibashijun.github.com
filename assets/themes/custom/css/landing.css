@@ -47,9 +47,11 @@ html {
 }
 
 body {
+    position: relative;
     width: 100%;
     height: 100%;
     font-family: "Droid Serif";
+    overflow: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -151,47 +153,19 @@ pre code {
     max-width: 100%;
 }
 
-.box {
-    width: 100%;
-}
-
-.links {
-    margin: 0 auto;
-}
-
-.links > h1 {
-    width: 100%;
-    color: #ccc;
-    font-family: "sprout";
-    text-align: center;
-}
-
-.links li {
-    list-style-type: none;
-}
-
-.links li a {
-    color: #fff;
-    font-family: "sprout";
-    text-decoration: none;
-}
-
-.links li a:hover {
-    color: rgb(150, 79, 76);
-}
 /*6653*/
 #c {
+    position: absolute;
+    z-index: -2;
+    top: 0px;
+    left: 0px;
     width: 100%;
+    height: 100%;
 }
 
-#code {
-    background-color: #6ccecb;
-}
-
-#sns {
-    background-color: #218c8d;
-}
-
-#footer {
-    background-color: #8edc9d;
+#logo {
+    position: absolute;
+    z-index: -1;
+    left: 0px;
+    width: 100%;
 }
