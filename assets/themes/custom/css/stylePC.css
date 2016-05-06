@@ -85,6 +85,8 @@ p {
 }
 
 .navbar {
+    top: 0;
+    left: 100%;
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -146,6 +148,18 @@ p {
     color: #cccccc;
     border: 0 solid rgba(0, 0, 0, 1);
     border-width: 0 0 3px 0;
+}
+
+#navbar-button {
+    position: fixed;
+    top: 7px;
+    right: 20px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#menuWhiteImage {
+    display: none;
 }
 
 body > .content {

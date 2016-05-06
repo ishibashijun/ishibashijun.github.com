@@ -1,4 +1,3 @@
-var canvas, ctx;
 var width, height;
 var centerX, centerY;
 var minSize, maxSize;
@@ -11,8 +10,6 @@ function onResize() {
 
     width = parseInt(w);
     height = parseInt(h);
-    canvas.attr("width", width);
-    canvas.attr("height", height);
     centerX = parseInt(width) >> 1;
     centerY = parseInt(height) >> 1;
 
@@ -27,12 +24,8 @@ function onLoad() {
     var w = window.innerWidth;
     var h = window.innerHeight;
 
-    canvas = $("#c");
-    ctx = canvas.get(0).getContext("2d");
     width = parseInt(w);
     height = parseInt(h);
-    canvas.attr("width", width);
-    canvas.attr("height", height);
     centerX = parseInt(width) >> 1;
     centerY = parseInt(height) >> 1;
     near = width * 0.022388;
@@ -46,6 +39,24 @@ function onLoad() {
         } else {
             $("#hiddenMenuResponsive").slideUp("slow");
         }
+    });
+
+    $("#menuImage").click(function () {
+        $("#menuImage").fadeOut();
+        $(".navbar").animate({
+            left: 0
+        }, 1000, function () {
+            $("#menuWhiteImage").fadeIn();
+        });
+    });
+
+    $("#menuWhiteImage").click(function () {
+        $("#menuWhiteImage").fadeOut();
+        $(".navbar").animate({
+            left: "100%"
+        }, 1000, function () {
+            $("#menuImage").fadeIn();
+        });
     });
     
     initLogo();

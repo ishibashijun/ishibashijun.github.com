@@ -64,6 +64,14 @@
     cursor: pointer;
 }
 
+#navbar-button {
+    display: none;
+}
+
+body > .content {
+    margin: 5px auto 0;
+}
+
 }
 /*** END of min-width: 240px ***/
 @media only screen and (min-width: 481px) {
@@ -75,7 +83,7 @@
 .navbar {
     position: fixed;
     top: 0;
-    left: 0;
+    left: 100%;
     z-index: 2;
 }
 
@@ -96,6 +104,15 @@
     width: 0;
     height: 0;
     padding: 0;
+}
+
+#navbar-button {
+    display: block;
+}
+
+body > .content {
+    margin: 90px auto 0;
+    max-width: 700px;
 }
 
 /*** END of min-width: 768px ***/

@@ -82,6 +82,8 @@ pre code {
 }
 
 .navbar {
+    top: 0;
+    left: 0;
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -146,6 +148,18 @@ pre code {
 
 #menuResponsiveImage {
     padding-top: 5px;
+}
+
+#navbar-button {
+    position: fixed;
+    top: 7px;
+    right: 20px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#navbar-button #menuWhiteImage {
+    display: none;
 }
 
 #main {

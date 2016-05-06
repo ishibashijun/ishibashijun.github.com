@@ -27,7 +27,7 @@
 
 </head>
 
-<body>
+<body class="landing">
     <ul id="hiddenMenuResponsive">
         {% assign pages_list = site.pages %}
         {% assign group = 'navigation' %}
@@ -47,6 +47,10 @@
                 </ul>
             </div>
         </div>
+    </div>
+    <div id="navbar-button">
+        <img id="menuImage" src="{{ BASE_PATH }}/assets/themes/custom/images/menu.png">
+        <img id="menuWhiteImage" src="{{ BASE_PATH }}/assets/themes/custom/images/menuWhite.png">
     </div>
 
     {{ content }}

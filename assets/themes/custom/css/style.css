@@ -84,7 +84,17 @@ p {
     margin: 0 0 10px;
 }
 
+div.content ul {
+    list-style-type: circle;
+}
+
+div.content ul li {
+    margin-left: 25px;
+}
+
 .navbar {
+    top: 0;
+    left: 0;
     padding: 0;
     margin: 0;
     overflow: hidden;
@@ -149,6 +159,18 @@ p {
 
 #menuResponsiveImage {
     padding-top: 5px;
+}
+
+#navbar-button {
+    position: fixed;
+    top: 7px;
+    right: 20px;
+    z-index: 3;
+    cursor: pointer;
+}
+
+#menuWhiteImage {
+    display: none;
 }
 
 body > .content {
