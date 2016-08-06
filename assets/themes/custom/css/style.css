@@ -92,6 +92,10 @@ div.content ul li {
     margin-left: 25px;
 }
 
+a.imgLink:hover {
+    text-decoration: none;
+}
+
 .navbar {
     top: 0;
     left: 0;
