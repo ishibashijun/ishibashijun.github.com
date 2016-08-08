@@ -1,0 +1,108 @@
+---
+layout: post
+title: How to get root directory on Android with Cocos2d-x
+category: game development
+tagline:
+tags: [game development, c++, java, jni, cocos2d-x, android]
+descripton: This is how I have extended Cocos2d-x to get root directory on Android.
+keywords: [game development, c++, java, jni, cocos2d-x, android]
+---
+<p>I googled how to get root directory on Android with Cocos2d-x but I could not get any related or helpful results.
+Thus this is how I have extended Cocos2d-x to get it.</p>
+<h3 style="word-wrap: break-word;">Open up %PROJECT_DIR%/cocos2d/cocos/platform/android/java/src/org/cocos2dx/lib/Cocos2dxHelper.java</h3>
+<pre><code>import android.os.Build;
+import android.os.IBinder;
+import android.os.Vibrator;
+import android.os.Environment; // <- ADD THIS
+</code></pre>
+<pre><code>// ===========================================================
+// Fields
+// ===========================================================
+private static String sRootDirectory; // <- ADD THIS
+
+private static Cocos2dxMusic sCocos2dMusic;
+private static Cocos2dxSound sCocos2dSound;
+private static AssetManager sAssetManager;
+private static Cocos2dxAccelerometer sCocos2dxAccelerometer;
+private static boolean sAccelerometerEnabled;
+private static boolean sActivityVisible;
+private static String sPackageName;
+private static String sFileDirectory;
+</code></pre>
+<pre><code>public static void init(final Activity activity) {
+    sActivity = activity;
+    Cocos2dxHelper.sCocos2dxHelperListener = (Cocos2dxHelperListener)activity;
+    if (!sInited) {
+        final ApplicationInfo applicationInfo = activity.getApplicationInfo();
+                
+        Cocos2dxHelper.sPackageName = applicationInfo.packageName;
+        if (CocosPlayClient.isEnabled() && !CocosPlayClient.isDemo()) {
+            Cocos2dxHelper.sFileDirectory = CocosPlayClient.getGameRoot();
+        }
+        else {
+            Cocos2dxHelper.sFileDirectory = activity.getFilesDir().getAbsolutePath();
+        }
+
+        Cocos2dxHelper.sRootDirectory = Environment.getExternalStorageDirectory().getAbsolutePath(); // <- ADD THIS
+</code></pre>
+<pre><code>public static String getCocos2dxWritablePath() {
+    return Cocos2dxHelper.sFileDirectory;
+}
+
+public static String getCocos2dxRootPath() { // <- ADD THIS METHOD
+    return Cocos2dxHelper.sRootDirectory;
+}
+
+public static String getCurrentLanguage() {
+    return Locale.getDefault().getLanguage();
+}
+</code></pre>
+<h3 style="word-wrap: break-word;">Open up %PROJECT_DIR%/cocos2d/cocos/platform/android/jni/Java_org_cocos2dx_lib_Cocos2dxHelper.h</h3>
+<pre><code>extern std::string getCurrentLanguageJNI();
+extern std::string getPackageNameJNI();
+extern std::string getFileDirectoryJNI();
+extern std::string getRootDirectoryJNI(); // <- ADD THIS
+</code></pre>
+<h3 style="word-wrap: break-word;">Open up %PROJECT_DIR%/cocos2d/cocos/platform/android/jni/Java_org_cocos2dx_lib_Cocos2dxHelper.cpp</h3>
+<pre><code>std::string getRootDirectoryJNI() { // <- ADD THIS FUNCTION
+    JniMethodInfo t;
+    std::string ret("");
+
+    if (JniHelper::getStaticMethodInfo(t, CLASS_NAME, "getCocos2dxRootPath", "()Ljava/lang/String;")) {
+        jstring str = (jstring)t.env->CallStaticObjectMethod(t.classID, t.methodID);
+        t.env->DeleteLocalRef(t.classID);
+        ret = JniHelper::jstring2string(str);
+        t.env->DeleteLocalRef(str);
+    }
+    
+    return ret;
+}
+</code></pre>
+<h3 style="word-wrap: break-word;">Open up %PROJECT_DIR%/cocos2d/cocos/platform/android/CCFileUtils-android.h</h3>
+<pre><code>virtual std::string getWritablePath() const;
+virtual std::string getRootPath() const; // <- ADD THIS
+virtual bool isAbsolutePath(const std::string& strPath) const;
+</code></pre>
+<h3 style="word-wrap: break-word;">Open up %PROJECT_DIR%/cocos2d/cocos/platform/android/CCFileUtils-android.cpp</h3>
+<pre><code>string FileUtilsAndroid::getRootPath() const // <- ADD THIS METHOD
+{
+    string dir("");
+    string tmp = getRootDirectoryJNI();
+
+    if (tmp.length() > 0)
+    {
+        dir.append(tmp).append("/");
+
+        return dir;
+    }
+    else
+    {
+        return "";
+    }
+}
+</code></pre>
+<h3 style="word-wrap: break-word;">Open up %PROJECT_DIR%/cocos2d/cocos/platform/CCFileUtils.h</h3>
+<pre><code>virtual std::string getRootPath() const = 0; //  <- ADD THIS
+</code></pre>
+<h2>Finally</h2>
+<p>FileUtils's new method getRootPath() is created and calling it may return something like "/storage/emulated/0/".</p>
