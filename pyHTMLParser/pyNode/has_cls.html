@@ -7,17 +7,11 @@ title: pyHTMLParser Docs | pyNode.has_cls
         <p id="description">returns True if the element has a specified class attribute value.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-link_class = Q('a:first').has_cls("link")
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: cls,&nbsp;<em>Type: str</em></li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def has_cls(self, cls):
     if 'class' in self._attr:

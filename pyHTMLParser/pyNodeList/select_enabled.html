@@ -7,21 +7,16 @@ title: pyHTMLParser Docs | pyNodeList.select_enabled
         <p id="description">returns enabled elements.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-enabled = Q('input').select_enabled()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def select_enabled(self):
     ret = pyNodeList()
     tags = ['button', 'input', 'optgroup', 'option', 'select', 'textarea']
     for node in self:
         if node.name() in tags:
-            t = node.attr('disabled')
-            if t is None:
+            try:
+                t = node._attr['disabled']
+            except KeyError:
                 ret.append(node)
     if len(ret) == 1: return ret[0]
     else: return ret

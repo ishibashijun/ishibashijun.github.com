@@ -4,16 +4,10 @@ title: pyHTMLParser Docs | pyNodeList.select_last_of_type
 ---
     <header>
         <h1>select_last_of_type</h1>
-        <p id="description">returns elements that are the last of type.</p>
+        <p id="description">returns elements that are the last child of their parents.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-last_of_type = Q('div').select_last_of_type()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def select_last_of_type(self):
     parents = list()
@@ -31,7 +25,7 @@ def select_last_of_type(self):
     for parent in parents:
         n = parent.child(tag)
         if isinstance(n, pyNodeList) and len(n) != 0: n = n.last()
-        if n is not None: ret.append(n)
+        if n is not None and isinstance(n, pyNode): ret.append(n)
     if len(ret) == 1: return ret[0]
     else: return ret
         </code></pre>

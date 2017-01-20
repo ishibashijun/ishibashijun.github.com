@@ -1,9 +1,9 @@
 function onResize() {
-	
+
 }
 
 function onOrientationChange() {
-	
+
 }
 
 function onLoad() {
@@ -23,6 +23,18 @@ function onLoad() {
         if ($("#sidebarQuery_list").is(":hidden")) $("#sidebarQuery_list").slideDown("slow");
         else $("#sidebarQuery_list").slideUp("slow");
     });
+	$("#showHTML + pre").hide();
+	$("#showHTML").click(function() {
+		if ($("#showHTML + pre").is(":hidden")) {
+            $("#showHTML + pre").slideDown("slow", function() {
+                $("#showHTML").text("hide HTML");
+            });
+        } else {
+            $("#showHTML + pre").slideUp("slow", function() {
+                $("#showHTML").text("show HTML");
+            });
+        }
+	});
 }
 
 window.addEventListener("resize", onResize, false);

@@ -7,13 +7,7 @@ title: pyHTMLParser Docs | pyNode.id
         <p id="description">returns id name.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-div_id = Q('div:first').id()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def id(self):
     return self._attr['id'] if 'id' in self._attr else None

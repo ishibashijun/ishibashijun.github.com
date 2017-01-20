@@ -9,16 +9,33 @@ title: pyHTMLParser Docs
     <article>
         <header><h2>Aboud pyHTMLParser</h2></header>
         <p>
-            A simple html parser that constructs DOM tree. It is aimed to provide jquery like API.
+            A simple html parser that constructs DOM tree.<br>It is aimed to provide jquery like API.
             <hr>
-            The library is still in early stage of development. If you found bugs or new features that wanted to be added, Please report on <a href="https://github.com/ishibashijun/pyHTMLParser/issues">issues</a> on GitHub.
+            If you found bugs or new features that wanted to be added, Please report on <a href="https://github.com/ishibashijun/pyHTMLParser/issues">issues</a> on GitHub.
             <hr>
             Click a class name in the sidebar to view its methods.
         </p>
-        <footer>
+        <p>
             <h2 id="installation">Installation</h2>
             <pre><code>
 >> pip install pyHTMLParser
             </code></pre>
-        </footer>
+        </p>
+        <p>
+            <h2 id="getStarted">Get started!</h2>
+            <pre><code>
+from pyHTMLParser.Query import Q_open, Q_close, Q
+
+Q_open('http://ishibashijun.github.io')
+
+some_text = Q('#description').text()
+print(some_text)
+
+Q_close()
+            </code></pre>
+            <h3><i>Output</i></h3>
+            <pre><code>
+>> Python 3.x library for html parsing
+            </code></pre>
+        </p>
     </article>

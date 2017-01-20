@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Test</title>
+</head>
+<body>
+
+<h1>Parsing Test</h1>
+<h2>p, span and divs</h2>
+<p>paragraph</p>
+<div class="divClass"><p>wrapped with div</p></div>
+<div class="divClass"><p>second child div</p></div>
+<p id="para">paragraph with id</p>
+<div id="ancestor" class="parent">
+    <p class="descendant">descendant<span class="more_descendant"> and some<i class="more_descendant"> more!</i></span></p>
+    <p class="child">child of div<span class="not_child"> child of p</span></p>
+</div>
+<h3>lists</h3>
+<div id="list">
+    <ul id="firstList">
+        <li>first</li>
+        <li>second</li>
+        <li>third</li>
+        <li>forth</li>
+    </ul>
+    <ul id="secondList">
+        <li>fifth</li>
+        <li>sixth</li>
+        <li>seventh</li>
+        <li>eighth</li>
+    </ul>
+    <ul id="thirdList">
+        <li>nineth</li>
+        <li>
+            <ul id="forthList">
+                <li>tenth</li>
+                <li>eleventh</li>
+            </ul>
+        </li>
+    </ul>
+    <ul id="Fifth List">
+        <li>twelfth</li>
+    </ul>
+</div>
+<h4>lang</h4>
+<div lang="en-us">Hello</div>
+<div lang="es-es">Hola</div>
+<h5>inputs</h5>
+<form>
+    <fieldset>
+        <input type="button" value="Button1">
+        <input type="checkbox">
+        <input type="checkbox" checked>
+        <input type="checkbox" checked="checked">
+
+        <input type="file">
+        <input type="hidden">
+        <input type="image">
+
+        <input type="text" disabled="disabled" value="Email">
+        <input type="text" value="Conform address" disabled>
+        <input type="password">
+
+        <input type="radio">
+        <input type="reset">
+
+        <input type="submit">
+        <input type="text">
+        <select>
+            <option>Option</option>
+        </select>
+
+        <textarea></textarea>
+        <button>Button2</button>
+    </fieldset>
+</form>
+</body>
+</html>

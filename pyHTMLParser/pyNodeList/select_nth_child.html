@@ -4,15 +4,9 @@ title: pyHTMLParser Docs | pyNodeList.select_nth_child
 ---
     <header>
         <h1>select_nth_child</h1>
-        <p id="description">returns elements that are the specified index child of their parent.</p>
+        <p id="description">returns elements that are the nth child of their parent.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-second_child = Q('div').select_nth_child(2)
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: i,&nbsp;<em>Type: int</em>
@@ -21,7 +15,7 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def select_nth_child(self, i):
     index = i - 1

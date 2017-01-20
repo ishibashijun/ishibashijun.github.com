@@ -7,28 +7,36 @@ title: pyHTMLParser Docs | pyNode.html
         <p id="description">returns the html content.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-div_html = Q('div:first').html()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def html(self):
     if self._name != 'comment':
         if self._html != '': return self._html
-        self._html += '&lt;' + self.name()
+        self._html += '<' + self.name()
         for attr in self._attr:
             a = self._attr[attr]
             if a is not None:
                 self._html += ' ' + attr + '="' + self._attr[attr] + '"'
-        self._html += '&gt;' + self._text
+        try:
+                if self._attr['checked'] == None:
+                    self._html += ' checked>'
+            except KeyError:
+                self._html += '>'
         if not is_self_closing(self.name()):
             if self.has_child:
-                for ch in self._children:
-                    self._html += ch.html()
-            self._html += '&lt;/' + self.name() + '&gt;'
+                size = len(self._children)
+                j = 0
+                if 0 in self._textAtNthChild:
+                    self._html += self._text[0]
+                    j += 1
+                for i in range(size):
+                    self._html += self._children[i].html()
+                    if i + 1 in self._textAtNthChild:
+                        self._html += self._text[j]
+                        j += 1
+            else:
+                self._html += self._text[0]
+            self._html += '</' + self.name() + '>'
         return self._html
     else:
         return self.comment()

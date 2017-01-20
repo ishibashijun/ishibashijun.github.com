@@ -7,12 +7,6 @@ title: pyHTMLParser Docs | pyNodeList.eq
         <p id="description">returns an element at the specified index.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-third_elem = Q('#list &gt; li').eq(3)
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: index,&nbsp;<em>Type: int</em>
@@ -21,11 +15,12 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def eq(self, index):
-    if len(self) > abs(index):
-        return self[index]
+    if (0 <= index and index < len(self)) or \
+           (index < 0 and abs(index) <= len(self)):
+            return self[index]
     return None
         </code></pre>
     </article>

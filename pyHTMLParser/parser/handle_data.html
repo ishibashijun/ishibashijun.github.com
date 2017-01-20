@@ -15,13 +15,12 @@ title: pyHTMLParser Docs | Parser.handle_data
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def handle_data(self, data):
     if self._is_started:
         text = data.replace('\r\n', '')
         text = text.replace('\n', '')
-        text = text.replace('\t', '')
-        self._dom[-1].add_text(text.strip())
+        self._dom[-1].add_text(text)
         </code></pre>
     </article>

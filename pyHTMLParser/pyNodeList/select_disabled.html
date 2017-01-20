@@ -7,23 +7,18 @@ title: pyHTMLParser Docs | pyNodeList.select_disabled
         <p id="description">returns elements that have the attribute disabled and the value disabled or not.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-disabled = Q('input').select_disabled()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def select_disabled(self):
     ret = pyNodeList()
     tags = ['button', 'input', 'optgroup', 'option', 'select', 'textarea']
     for node in self:
         if node.name() in tags:
-            t = node.attr('disabled')
-            if t is not None:
-                if t == 'disabled' or t == '':
-                    ret.append(node)
+            try:
+                t = node._attr['disabled']
+                ret.append(node)
+            except KeyError:
+                continue
     if len(ret) == 1: return ret[0]
     else: return ret
         </code></pre>

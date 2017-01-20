@@ -7,13 +7,6 @@ title: pyHTMLParser Docs | pyNodeList.select_has
         <p id="description">returns elements that have given elements.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-p = Q('p')
-divs_with_p = Q('div').select_has(p)
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: pynodelist,&nbsp;<em>Type: pyNodeList</em>
@@ -22,7 +15,7 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def select_has(self, pynodelist):
     ret = pyNodeList()

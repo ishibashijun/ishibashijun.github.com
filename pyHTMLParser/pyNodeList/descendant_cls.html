@@ -7,12 +7,6 @@ title: pyHTMLParser Docs | pyNodeList.descendant_cls
         <p id="description">returns descendant matching the class name.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-links = Q('ul').descendant_cls('link')
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: cls,&nbsp;<em>Type: str</em>
@@ -21,7 +15,7 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def descendant_cls(self, cls):
     ret = pyNodeList()

@@ -20,17 +20,25 @@ title: pyHTMLParser Docs | Parser.handle_starttag
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def handle_starttag(self, tag, attrs):
-    node = pyNode(tag.lower())
-    if len(self._dom) != 0:
-        node.set_parent(self._dom[-1])
-        self._dom[-1].add_child(node)
-    if not is_self_closing(tag.lower()):
-        self._dom.append(node)
-    self._nodes.append(node)
-    for attr in attrs:
-        node.set_attr(attr[0], attr[1])
+        if not self._is_started:
+            if tag.lower() == 'html':
+                node = pyNode('html')
+                self._is_started = True
+                self._dom.append(node)
+                self._nodes.append(node)
+                for attr in attrs:
+                    node.set_attr(attr[0], attr[1])
+        else:
+            node = pyNode(tag.lower())
+            node.set_parent(self._dom[-1])
+            self._dom[-1].add_child(node)
+            if not is_self_closing(tag.lower()):
+                self._dom.append(node)
+            self._nodes.append(node)
+            for attr in attrs:
+                node.set_attr(attr[0], attr[1])
         </code></pre>
     </article>

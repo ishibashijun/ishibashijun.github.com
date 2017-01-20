@@ -7,13 +7,6 @@ title: pyHTMLParser Docs | pyNodeList.tag
         <p id="description">returns elements that are matching the tag name.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-class_link = Q('.link')
-a = class_link.tag('a')
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: tag,&nbsp;<em>Type: str</em>
@@ -22,7 +15,7 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def tag(self, tag):
     t = tag.lower()

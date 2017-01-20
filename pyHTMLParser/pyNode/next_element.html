@@ -7,14 +7,7 @@ title: pyHTMLParser Docs | pyNode.next_element
         <p id="description">returns an element that is next.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-second = Q('ul:first &gt; li:nth-child(2)')
-third_li = second.next_element()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def next_element(self):
     if self.has_parent():
@@ -23,8 +16,11 @@ def next_element(self):
             passed = False
             for bro in brothers:
                 if bro.name() != 'comment':
-                    if passed: return bro
-                    if not passed and bro == self: passed = True
+                    if passed:
+                        return bro
+                    else:
+                        if bro == self:
+                            passed = True
     return None
         </code></pre>
     </article>

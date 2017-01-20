@@ -7,14 +7,7 @@ title: pyHTMLParser Docs | pyNode.select_next
         <p id="description">returns a next element.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-second = Q('ul:first &gt; li:nth-child(2)')
-third_li = second.select_next()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def select_next(self):
     return self.next_element()

@@ -7,23 +7,15 @@ title: pyHTMLParser Docs | pyNode.text
         <p id="description">returns the text content.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-div_text = Q('div:first').text()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def text(self):
     if self._name != 'comment':
-        ret = self._text
-        if self.has_child():
-            for child in self._children:
-                if ret != '':
-                    ret += ' ' + child.text()
-                else:
-                    ret += child.text()
+        ret = ''
+        size = len(self._text)
+        if size != 0:
+            for t in self._text:
+                ret += t
         return ret
     else:
         return self.comment()

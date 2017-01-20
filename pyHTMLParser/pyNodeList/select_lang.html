@@ -7,12 +7,6 @@ title: pyHTMLParser Docs | pyNodeList.select_lang
         <p id="description">returns elements that have the lang attribute and the given value.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-english = Q('div').select_lang('en-us')
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: lang,&nbsp;<em>Type: str</em>
@@ -21,7 +15,7 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def select_lang(self, lang):
     ret = pyNodeList()

@@ -7,12 +7,6 @@ title: pyHTMLParser Docs | pyNode.attr
         <p id="description">returns a attribute value or space separated values.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-link = Q('a:first').attr('href')
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: key,&nbsp;<em>Type: str</em>
@@ -21,7 +15,7 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def attr(self, key):
     if not key in self._attr: return None

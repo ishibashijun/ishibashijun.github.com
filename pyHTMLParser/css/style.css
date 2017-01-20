@@ -183,13 +183,19 @@ pre code {
     letter-spacing: 0.5em;
 }
 
+#showHTML {
+    font-size: 1.65em !important;
+    letter-spacing: 0em !important;
+    cursor: pointer;
+}
+
 #main h3 {
     margin: 10px 0 0px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 #main h4 {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 #main h5 {

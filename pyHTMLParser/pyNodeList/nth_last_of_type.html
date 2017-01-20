@@ -4,14 +4,32 @@ title: pyHTMLParser Docs | Query.nth_last_of_type
 ---
     <header>
         <h1>:nth-last-of-type(n)</h1>
-        <p id="description">returns elements that are the specified index of type from last.</p>
+        <p id="description">returns elements that are the nth child of their parents counting from the last element.</p>
     </header>
     <article>
-        <h2>Example</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
-Q_open("http://example.com")
-second_from_last = Q('article:nth-last-of-type(2)')
-fifth_from_last = Q('div:nth-last-of-type(5)')
-Q_close()
+def select_nth_last_of_type(self, i):
+        parents = list()
+        ret = pyNodeList()
+        tag = self[0].name()
+        for node in self:
+            duplicated = False
+            if len(parents) != 0:
+                for p in parents:
+                    if p == node.parent():
+                        duplicated = True
+                        break
+            if not duplicated: parents.append(node.parent())
+            if tag != node.name():
+                return ret
+        if len(parents) != 0:
+            for parent in parents:
+                ch = parent.child(tag)
+                if isinstance(ch, pyNodeList) and len(ch) != 0:
+                    n = ch.eq(-1 * i)
+                    if n is not None: ret.append(n)
+        if len(ret) == 1: return ret[0]
+        else: return ret
         </code></pre>
     </article>

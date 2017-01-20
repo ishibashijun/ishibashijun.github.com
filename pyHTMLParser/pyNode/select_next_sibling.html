@@ -7,23 +7,25 @@ title: pyHTMLParser Docs | pyNode.select_next_sibling
         <p id="description">returns the sibling that is from the next element.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-second = Q('ul:first &gt; li:nth-child(2)')
-from_third_li = second.select_next_sibling()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def select_next_sibling(self):
     ret = pyNodeList()
     n = self.next_all()
     if isinstance(n, pyNode):
-        ret.append(n)
-    elif isinstance(n, pyNodeList) and len(n) != 0:
+        tmp = pyNodeList()
+        tmp.append(n)
+        n = tmp
+    if isinstance(n, pyNodeList) and len(n) != 0:
         for elem in n:
-            ret.append(elem)
+            if elem.has_child():
+                for child in elem.children():
+                    ret.append(child)
+                    descendants = child.descendant()
+                    if isinstance(descendants, pyNode):
+                        ret.append(descendants)
+                    elif isinstance(descendants, pyNodeList):
+                        ret.extend(descendants)
     if len(ret) == 1: return ret[0]
     else: return ret
         </code></pre>

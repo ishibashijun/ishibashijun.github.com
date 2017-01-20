@@ -7,13 +7,7 @@ title: pyHTMLParser Docs | pyNode.has_child
         <p id="description">returns True if the element has child element(s).</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-has_child = Q('div:first').has_child()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def has_child(self):
     return len(self._children) != 0

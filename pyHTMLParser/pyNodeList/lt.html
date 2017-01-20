@@ -7,12 +7,6 @@ title: pyHTMLParser Docs | pyNodeList.lt
         <p id="description">returns elements that are the less than specified index.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Qopen("http://example.com")
-elems = Q('#list &gt; li').lt(3)
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: index,&nbsp;<em>Type: int</em>
@@ -21,9 +15,13 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def lt(self, index):
-    return self[:index]
+    li = self[:index]
+        ret = pyNodeList()
+        for node in li:
+            ret.append(node)
+        return ret
         </code></pre>
     </article>

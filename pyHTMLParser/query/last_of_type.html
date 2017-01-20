@@ -7,11 +7,107 @@ title: pyHTMLParser Docs | Query.last_of_type
         <p id="description">returns elements that are the last of type.</p>
     </header>
     <article>
-        <h2>Example</h2>
+        <h2 id="showHTML">show HTML</h2>
         <pre><code>
-Q_open("http://example.com")
-li_last = Q('li:last-of-type')
-div_last = Q('div:last-of-type')
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;title&gt;Test&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;Parsing Test&lt;/h1&gt;
+&lt;h2&gt;p, span and divs&lt;/h2&gt;
+&lt;p&gt;paragraph&lt;/p&gt;
+&lt;div class="divClass"&gt;&lt;p&gt;wrapped with div&lt;/p&gt;&lt;/div&gt;
+&lt;div class="divClass"&gt;&lt;p&gt;second child div&lt;/p&gt;&lt;/div&gt;
+&lt;p id="para"&gt;paragraph with id&lt;/p&gt;
+&lt;div id="ancestor" class="parent"&gt;
+    &lt;p class="descendant"&gt;descendant&lt;span class="more_descendant"&gt; and some&lt;i class="more_descendant"&gt; more!&lt;/i&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;p class="child"&gt;child of div&lt;span class="not_child"&gt; child of p&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3&gt;lists&lt;/h3&gt;
+&lt;div id="list"&gt;
+    &lt;ul id="firstList"&gt;
+        &lt;li&gt;first&lt;/li&gt;
+        &lt;li&gt;second&lt;/li&gt;
+        &lt;li&gt;third&lt;/li&gt;
+        &lt;li&gt;forth&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul id="secondList"&gt;
+        &lt;li&gt;fifth&lt;/li&gt;
+        &lt;li&gt;sixth&lt;/li&gt;
+        &lt;li&gt;seventh&lt;/li&gt;
+        &lt;li&gt;eighth&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul id="thirdList"&gt;
+        &lt;li&gt;nineth&lt;/li&gt;
+        &lt;li&gt;
+            &lt;ul id="forthList"&gt;
+                &lt;li&gt;tenth&lt;/li&gt;
+                &lt;li&gt;eleventh&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul id="Fifth List"&gt;
+        &lt;li&gt;twelfth&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;h4&gt;lang&lt;/h4&gt;
+&lt;div lang="en-us"&gt;Hello&lt;/div&gt;
+&lt;div lang="es-es"&gt;Hola&lt;/div&gt;
+&lt;h5&gt;inputs&lt;/h5&gt;
+&lt;form&gt;
+    &lt;fieldset&gt;
+        &lt;input type="button" value="Button1"&gt;
+        &lt;input type="checkbox"&gt;
+        &lt;input type="checkbox" checked&gt;
+        &lt;input type="checkbox" checked="checked"&gt;
+
+        &lt;input type="file"&gt;
+        &lt;input type="hidden"&gt;
+        &lt;input type="image"&gt;
+
+        &lt;input type="text" disabled="disabled" value="Email"&gt;
+        &lt;input type="text" value="Conform address" disabled&gt;
+        &lt;input type="password"&gt;
+
+        &lt;input type="radio"&gt;
+        &lt;input type="reset"&gt;
+
+        &lt;input type="submit"&gt;
+        &lt;input type="text"&gt;
+        &lt;select&gt;
+            &lt;option&gt;Option&lt;/option&gt;
+        &lt;/select&gt;
+
+        &lt;textarea&gt;&lt;/textarea&gt;
+        &lt;button&gt;Button2&lt;/button&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+        <h3>Example</h3>
+        <pre><code>
+Q_open('http://localhost:4000/pyHTMLParser/test.html')
+
+li = Q('li:last-of-type')
+
+if isinstance(li, pyNode):
+    print(li.html())
+elif isinstance(li, pyNodeList):
+    for node in li:
+        print(node.html())
+
 Q_close()
+        </code></pre>
+        <h4><i>Output</i></h4>
+        <pre><code>
+>> &lt;li&gt;forth&lt;/li&gt;
+>> &lt;li&gt;eighth&lt;/li&gt;
+>> &lt;li&gt;&lt;ul id="forthList"&gt;&lt;li&gt;tenth&lt;/li&gt;&lt;li&gt;eleventh&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+>> &lt;li&gt;eleventh&lt;/li&gt;
         </code></pre>
     </article>

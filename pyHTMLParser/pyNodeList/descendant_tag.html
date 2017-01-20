@@ -7,12 +7,6 @@ title: pyHTMLParser Docs | pyNodeList.descendant_tag
         <p id="description">returns descendant matching the tag name.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-a = Q('ul').descendant_tag('a')
-parser.close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: tag,&nbsp;<em>Type: str</em>
@@ -21,7 +15,7 @@ parser.close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def descendant_tag(self, tag):
     t = tag.lower()

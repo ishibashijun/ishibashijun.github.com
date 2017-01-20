@@ -7,12 +7,6 @@ title: pyHTMLParser Docs | pyNodeList.select_attr_ends_with
         <p id="description">returns elements that have the specified attribute and the value that ends with the given value.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-logo = Q('img').select_attr_ends_with('alt', 'logo')
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: attr,&nbsp;<em>Type: str</em>
@@ -26,7 +20,7 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def select_attr_ends_with(self, attr, value):
     ret = pyNodeList()

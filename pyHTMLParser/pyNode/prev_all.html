@@ -7,14 +7,7 @@ title: pyHTMLParser Docs | pyNode.prev_all
         <p id="description">returns elements before this element that are in the same DOM hierarchy.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-third = Q('ul:first &gt; li:eq(3)')
-li = third.prev_all()
-Q_close()
-        </code></pre>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def prev_all(self):
     ret = pyNodeList()
@@ -25,8 +18,6 @@ def prev_all(self):
                 if bro.name() != 'comment':
                     if bro == self: break
                     ret.append(bro)
-        elif isinstance(brothers, pyNode):
-            ret.append(brothers)
     if len(ret) == 1: return ret[0]
     else: return ret
         </code></pre>

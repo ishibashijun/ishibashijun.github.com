@@ -7,12 +7,6 @@ title: pyHTMLParser Docs | pyNodeList.has_cls
         <p id="description">returns True if one or more of elements have the attribute class of the matching value.</p>
     </header>
     <article>
-        <h2>Example</h2>
-        <pre><code>
-Q_open("http://example.com")
-main_class = Q('div').has_class('main')
-Q_close()
-        </code></pre>
         <h2 id="arguments">Arguments</h2>
         <ul>
             <li>Name: cls,&nbsp;<em>Type: str</em>
@@ -21,7 +15,7 @@ Q_close()
                 </ul>
             </li>
         </ul>
-        <h2 id="source">Source</h2>
+        <h3 id="source">Source</h3>
         <pre><code>
 def has_cls(self, c):
     cls_name = re.compile(c)

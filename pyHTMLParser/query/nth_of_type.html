@@ -1,10 +1,10 @@
 ---
 layout: pyHTMLParser
-title: pyHTMLParser Docs | Query.eq
+title: pyHTMLParser Docs | Query.nth_last_of_type
 ---
     <header>
-        <h1>:eq(i)</h1>
-        <p id="description">returns the specified index element.</p>
+        <h1>:nth-of-type(n)</h1>
+        <p id="description">returns elements that are the nth child of their parents.</p>
     </header>
     <article>
         <h2 id="showHTML">show HTML</h2>
@@ -93,17 +93,21 @@ title: pyHTMLParser Docs | Query.eq
         <pre><code>
 Q_open('http://localhost:4000/pyHTMLParser/test.html')
 
-li2 = Q('#firstList > li:eq(2)')
-li6 = Q('#secondList > li').eq(2)
+li = Q('li:nth-of-type(2)')
 
-print(li2.text())
-print(li6.text())
+if isinstance(li, pyNode):
+    print(li.html())
+elif isinstance(li, pyNodeList):
+    for node in li:
+        print(node.html())
 
 Q_close()
         </code></pre>
         <h4><i>Output</i></h4>
         <pre><code>
->> third
->> seventh
+>> &lt;li&gt;second&lt;/li&gt;
+>> &lt;li&gt;sixth&lt;/li&gt;
+>> &lt;li&gt;&lt;ul id="forthList"&gt;&lt;li&gt;tenth&lt;/li&gt;&lt;li&gt;eleventh&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;
+>> &lt;li&gt;eleventh&lt;/li&gt;
         </code></pre>
     </article>
