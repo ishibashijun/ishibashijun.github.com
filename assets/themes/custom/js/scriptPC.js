@@ -7,7 +7,7 @@ function onLoad() {
         $("#menuImage").fadeOut();
         $(".navbar").animate({
             left: 0
-        }, 1000, function () {
+        }, 1000, "easeOutBounce", function () {
             $("#menuWhiteImage").fadeIn();
         });
     });
@@ -16,7 +16,7 @@ function onLoad() {
         $("#menuWhiteImage").fadeOut();
         $(".navbar").animate({
             left: "100%"
-        }, 1000, function () {
+        }, 1000, "easeOutBounce", function () {
             $("#menuImage").fadeIn();
         });
     });
