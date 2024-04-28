@@ -75,7 +75,7 @@ JB :
   archive_path: /archive.html
   categories_path : /categories.html
   tags_path : /tags.html
-  memo_path : /memo_page.html
+  note_path : /note_page.html
   atom_path : /atom.xml
   rss_path : /rss.xml
 

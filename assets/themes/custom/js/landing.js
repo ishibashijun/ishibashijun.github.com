@@ -45,7 +45,7 @@ function onLoad() {
         $("#menuImage").fadeOut();
         $(".navbar").animate({
             left: 0
-        }, 1000, "easeOutBounce", function () {
+        }, 1000, "easeInExpo", function () {
             $("#menuWhiteImage").fadeIn();
         });
     });
@@ -54,7 +54,7 @@ function onLoad() {
         $("#menuWhiteImage").fadeOut();
         $(".navbar").animate({
             left: "100%"
-        }, 1000, "easeOutBounce", function () {
+        }, 700, "easeOutExpo", function () {
             $("#menuImage").fadeIn();
         });
     });
